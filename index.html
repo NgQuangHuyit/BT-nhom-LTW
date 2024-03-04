@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thi trắc nghiệm</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/main1.js" defer></script> 
+</head>
+<body>
+    <div class="bg-image--left">
+        <img src="https://code.ptit.edu.vn/2020/images/bg_left.png" alt="">
+    </div>
+
+    <div class="bg-image--right">
+        <img src="https://code.ptit.edu.vn/2020/images/bg_right.png" alt="">
+    </div>
+
+    <div class="wrapper">
+        <form action="" id="login-form">
+            <h1>Đăng nhập</h1>
+
+            <div class="input-box">
+                <input type="text" name="Username" id="Username" placeholder="Tài khoản" required>
+                <input type="password" name="Password" id="password" placeholder="Mật khẩu" required>
+            </div>
+
+            <div class="remember-forgot">
+                <label><input type="checkbox" id="checkbox">Nhớ mật khẩu</label>
+                <a href="#">Quên mật khẩu?</a>
+            </div>
+
+            <button type="submit" class="btn">Đăng nhập</button>
+
+            <div class="register-link">
+                <p>Chưa có tài khoản?
+                    <a href="#" id="register-link">Đăng kí</a>
+                </p>
+            </div>
+        </form>
+
+        <form action="" id="register-form" style="display: none;">
+            <h1>Đăng ký</h1>
+
+            <div class="input-box">
+                <input type="text" name="newUsername" id="newUsername" required placeholder="Tên người dùng">
+                <span class="format_error" id="username_format_err"></span>
+                <input type="email" name="email" id="email" required placeholder="Email">
+                <span class="format_error" id="email_format_err"></span>
+                <input type="password" name="newPassword" id="newPassword" required placeholder="Mật khẩu">
+                <span class="format_error" id="password_format_err"></span>
+                <input type="password" name="confirmPassword" id="confirmPassword" required placeholder="Xác nhận mật khẩu">
+                <span class="format_error" id="confirm_password_err"></span>
+            </div>
+
+            <button type="submit" class="btn">Đăng ký</button>
+
+            <div class="register-link">
+                <p>Đã có tài khoản?
+                    <a href="#" id="login-link">Đăng nhập</a>
+                </p>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
