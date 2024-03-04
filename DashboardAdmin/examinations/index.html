@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tạo/Chỉnh sửa bài thi</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #fa9f98;
+    margin: 0 auto;
+}
+
+.quiz-container {
+    max-width: 1000px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.form-container {
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.btn {
+    color: #fff;
+    display: inline-block;
+    text-decoration: none;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding: 12px 48px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: opacity 0.3s;
+    min-width: 100px;
+}
+
+.btn:hover {
+    opacity: 0.7;
+}
+.btn--success {
+    background-color: #28a745;
+}
+
+.btn--warn {
+    background-color: #ffc107;
+}
+
+.btn--danger {
+    color: #fff;
+    background-color: #dc3545;
+
+    cursor: pointer;
+}
+.btn + .btn {
+    margin-left: 10px;
+}
+
+.btn--disabled {
+    opacity: 0.5 !important;
+    cursor: default;
+}
+
+.btn--size-s {
+    padding: 8px 24px;
+}
+
+.question-list {
+    margin-top: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+.input-container {
+    display: flex;
+}
+
+.input-container button {
+    margin-left: 10px;
+}
+.correct-answer {
+    color: green;
+    font-weight: bold;
+}
+
+    </style>
+</head>
+<body>
+
+    <div class="quiz-container">
+        <h1>Tạo bài thi</h1>
+        
+        <div class="form-container">
+            <label for="quizName">Tên đề thi:</label>
+            <input type="text" id="quizName" placeholder="Nhập tên đề thi">
+            <label for="quizDescription">Mô tả:</label>
+            <textarea id="quizDescription" placeholder="Nhập mô tả đề thi"></textarea>
+            <label for="quizType">Loại đề thi:</label>
+            <select id="quizType" onchange="updateQuizTime()">
+                <option value="Tự do">Tự do</option>
+                <option value="Có thời gian">Có thời gian</option>
+            </select>
+            <div id="timeSection" style="display: none;">
+                <label for="quizTime">Thời gian làm bài (phút):</label>
+                <input type="number" id="quizTime" placeholder="Nhập thời gian làm bài">
+                <div id="displayQuizTime"></div>
+            </div>
+            <div class="question-list">
+                <h2>Danh sách câu hỏi</h2>
+                <p id="questionCount">Tổng số câu hỏi: 0</p>
+                <ul id="questionList"></ul>
+                <div class="input-container">
+                    <input type="text" id="questionInput" placeholder="Thêm câu hỏi mới">
+                    <button class="btn btn--success"  onclick="addQuestion()">Thêm câu hỏi</button>
+                </div>
+            </div>
+            <input type="file" id="excelFile" accept=".xlsx, .xls" />
+            <button class="btn btn--success" onclick="importExcel()">Import từ Excel</button>
+            <button class="btn btn--success" onclick="createQuiz()">Tạo bài thi</button>
+            
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    <script>
+            class Question {
+        constructor(text, options) {
+            this.text = text;
+            this.options = options || [];
+            this.correctAnswerIndex = null;
+        }
+    }
+
+    class Option {
+        constructor(text) {
+            this.text = text;
+        }
+    }
+
+    var questions = [];
+
+    function renderQuestions() {
+        var questionList = document.getElementById("questionList");
+        var questionCount = document.getElementById("questionCount");
+        
+        questionList.innerHTML = "";
+        questionCount.innerText = `Tổng số câu hỏi: ${questions.length}`;
+
+        questions.forEach(function (question, questionIndex) {
+            var questionItem = document.createElement("li");
+            questionItem.innerHTML = `
+                <span>${question.text}</span>
+                <ul id="optionsList${questionIndex}"></ul>
+                <input type="text" id="optionInput${questionIndex}" placeholder="Thêm một phương án">
+                <button class="btn btn--success btn--size-s" onclick="addOption(${questionIndex})">Thêm phương án</button>
+                <button class="btn btn--warn btn--size-s" onclick="editQuestion(${questionIndex})">Chỉnh sửa</button>
+                <button class="btn btn--danger btn--size-s" onclick="deleteQuestion(${questionIndex})">Xóa</button>
+                <button class="btn btn--warn btn--size-s" onclick="selectCorrectAnswer(${questionIndex})">Chọn đáp án Đúng</button>
+            `;
+            questionList.appendChild(questionItem);
+
+            var optionsList = document.getElementById(`optionsList${questionIndex}`);
+            question.options.forEach(function (option, optionIndex) {
+                var optionItem = document.createElement("li");
+                optionItem.innerHTML = `
+                    <span>${option.text}</span>
+                    <button onclick="editOption(${questionIndex}, ${optionIndex})">Chỉnh sửa</button>
+                    <button onclick="deleteOption(${questionIndex}, ${optionIndex})">Xóa</button>
+                `;
+                optionsList.appendChild(optionItem);
+
+                if (optionIndex === question.correctAnswerIndex) {
+                    optionItem.classList.add("correct-answer");
+                }
+            });
+        });
+    }
+
+    function addQuestion() {
+        var questionInput = document.getElementById("questionInput");
+        
+        if (questionInput.value.trim() === "") {
+            showAlert("Vui lòng nhập một câu hỏi.");
+            return;
+        }
+
+        var newQuestion = new Question(questionInput.value);
+        questions.push(newQuestion);
+        renderQuestions();
+        questionInput.value = "";
+    }
+
+    function addOption(questionIndex) {
+        var optionInput = document.getElementById(`optionInput${questionIndex}`);
+
+        if (optionInput.value.trim() === "") {
+            showAlert("Vui lòng nhập một phương án.");
+            return;
+        }
+
+        var newOption = new Option(optionInput.value);
+        questions[questionIndex].options.push(newOption);
+        renderQuestions();
+        optionInput.value = "";
+    }
+
+    function editQuestion(questionIndex) {
+        var newText = prompt("Chỉnh sửa câu hỏi:", questions[questionIndex].text);
+        
+        if (newText !== null) {
+            questions[questionIndex].text = newText;
+            renderQuestions();
+        }
+    }
+
+    function deleteQuestion(questionIndex) {
+        questions.splice(questionIndex, 1);
+        renderQuestions();
+    }
+
+    function editOption(questionIndex, optionIndex) {
+        var newText = prompt("Chỉnh sửa phương án:", questions[questionIndex].options[optionIndex].text);
+        
+        if (newText !== null) {
+            questions[questionIndex].options[optionIndex].text = newText;
+            renderQuestions();
+        }
+    }
+
+    function deleteOption(questionIndex, optionIndex) {
+        questions[questionIndex].options.splice(optionIndex, 1);
+        renderQuestions();
+    }
+
+    function selectCorrectAnswer(questionIndex) {
+        var optionsList = document.getElementById(`optionsList${questionIndex}`);
+        var options = optionsList.getElementsByTagName("li");
+
+        for (var i = 0; i < options.length; i++) {
+            options[i].classList.remove("correct-answer");
+        }
+
+        var selectedOption = prompt("Nhập phương án đúng (bắt đầu từ 1):");
+        if (selectedOption !== null) {
+            var index = parseInt(selectedOption) - 1;
+
+            if (index >= 0 && index < questions[questionIndex].options.length) {
+                questions[questionIndex].correctAnswerIndex = index;
+                options[index].classList.add("correct-answer");
+            } else {
+                showAlert("Số phương án không hợp lệ.");
+            }
+        }
+    }
+
+    function updateQuizTime() {
+        var quizType = document.getElementById("quizType").value;
+        var quizTimeContainer = document.getElementById("timeSection");
+        var displayQuizTime = document.getElementById("displayQuizTime");
+
+        if (quizType === "Có thời gian") {
+            quizTimeContainer.style.display = "block";
+            var time = document.getElementById("quizTime").value;
+            displayQuizTime.innerText = `Thời gian làm bài: ${time} phút`;
+        } else {
+            quizTimeContainer.style.display = "none";
+            displayQuizTime.innerText = "";
+        }
+    }
+
+    function createQuiz() {
+        if (questions.length === 0) {
+            showAlert("Vui lòng thêm ít nhất một câu hỏi.");
+            return;
+        }
+
+        var quizName = document.getElementById("quizName").value;
+        var quizDescription = document.getElementById("quizDescription").value;
+        var quizType = document.getElementById("quizType").value;
+        var quizTime = document.getElementById("quizTime").value;
+
+        showAlert(`Đã tạo Đề thi!\nTên: ${quizName}\nMô tả: ${quizDescription}\nLoại: ${quizType}\nThời gian: ${quizTime} phút`);
+    }
+
+    function importExcel() {
+        var input = document.getElementById('excelFile');
+        
+        if (!input.files.length) {
+            showAlert('Vui lòng chọn một tệp.');
+            return;
+        }
+
+        var file = input.files[0];
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            var data = new Uint8Array(e.target.result);
+            var workbook = XLSX.read(data, { type: 'array' });
+
+            var sheetName = workbook.SheetNames[0];
+            var sheet = workbook.Sheets[sheetName];
+
+            var questionsArray = XLSX.utils.sheet_to_json(sheet, { header: 1 });
+            parseExcelData(questionsArray);
+        };
+
+        reader.readAsArrayBuffer(file);
+    }
+
+    function parseExcelData(questionsArray) {
+        for (var i = 1; i < questionsArray.length; i++) {
+            var questionText = questionsArray[i][0];
+            var options = questionsArray[i].slice(1, -1);
+            var correctAnswer = questionsArray[i][questionsArray[i].length - 1];
+
+            var newQuestion = new Question(questionText);
+            
+            options.forEach(function (optionText) {
+                var newOption = new Option(optionText);
+                newQuestion.options.push(newOption);
+            });
+
+            var correctAnswerIndex = options.indexOf(correctAnswer);
+            newQuestion.correctAnswerIndex = correctAnswerIndex;
+
+            questions.push(newQuestion);
+        }
+
+        renderQuestions();
+    }
+
+    function showAlert(message) {
+        return new Promise(function(resolve) {
+            alert(message);
+            resolve();
+        });
+    }
+
+    renderQuestions();
+    </script>
+</body>
+</html>
