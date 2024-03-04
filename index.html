@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thi trắc nghiệm</title>
+    <title>Trang chính</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <script src="assets/js/main1.js" defer></script> 
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <script src="assets/js/main.js" defer></script> 
 </head>
 <body>
     <div class="bg-image--left">
@@ -18,19 +18,26 @@
     </div>
 
     <div class="wrapper">
+        <!-- Form đăng nhập -->
         <form action="" id="login-form">
             <h1>Đăng nhập</h1>
 
+            <!-- Các trường nhập tên người dùng và mật khẩu -->
             <div class="input-box">
                 <input type="text" name="Username" id="Username" placeholder="Tài khoản" required>
+            </div>
+
+            <div class="input-box">
                 <input type="password" name="Password" id="password" placeholder="Mật khẩu" required>
             </div>
 
+            <!-- Checkbox nhớ mật khẩu và liên kết quên mật khẩu -->
             <div class="remember-forgot">
                 <label><input type="checkbox" id="checkbox">Nhớ mật khẩu</label>
                 <a href="#">Quên mật khẩu?</a>
             </div>
 
+            <!-- Nút đăng nhập và liên kết đăng ký -->
             <button type="submit" class="btn">Đăng nhập</button>
 
             <div class="register-link">
@@ -40,20 +47,28 @@
             </div>
         </form>
 
+        <!-- Form đăng ký -->
         <form action="" id="register-form" style="display: none;">
             <h1>Đăng ký</h1>
 
+            <!-- Các trường nhập thông tin đăng ký -->
             <div class="input-box">
                 <input type="text" name="newUsername" id="newUsername" required placeholder="Tên người dùng">
-                <span class="format_error" id="username_format_err"></span>
-                <input type="email" name="email" id="email" required placeholder="Email">
-                <span class="format_error" id="email_format_err"></span>
-                <input type="password" name="newPassword" id="newPassword" required placeholder="Mật khẩu">
-                <span class="format_error" id="password_format_err"></span>
-                <input type="password" name="confirmPassword" id="confirmPassword" required placeholder="Xác nhận mật khẩu">
-                <span class="format_error" id="confirm_password_err"></span>
             </div>
 
+            <div class="input-box">
+                <input type="email" name="email" id="email" required placeholder="Email">
+            </div>
+
+            <div class="input-box">
+                <input type="password" name="newPassword" id="newPassword" required placeholder="Mật khẩu">
+            </div>
+
+            <div class="input-box">
+                <input type="password" name="confirmPassword" id="confirmPassword" required placeholder="Xác nhận mật khẩu">
+            </div>
+
+            <!-- Nút đăng ký và liên kết đăng nhập -->
             <button type="submit" class="btn">Đăng ký</button>
 
             <div class="register-link">

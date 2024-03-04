@@ -1,0 +1,166 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('https://images.unsplash.com/photo-1561502053-75e221f3ee9b'); /* Đường dẫn đến hình nền */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Giữ hình nền cố định khi cuộn trang */
+}
+
+.main-content {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.exam-list {
+    list-style-type: none;
+}
+
+.exam-option {
+    margin-bottom: 10px;
+}
+
+.exam-option button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #BB2019;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.exam-option button:hover {
+    background-color: #881009;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#search {
+    flex-grow: 1; 
+    padding: 10px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+#search::placeholder {
+    color: #6e7a86; /* Thay đổi màu placeholder */
+}
+
+#search-btn {
+    background-color: #fff;
+    color: #999;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    padding: 10px 15px; /* Điều chỉnh padding */
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#search-btn i {
+    font-size: 20px;
+}
+
+#search-btn:hover {
+    background-color: #6e7a86;
+}
+
+
+#start-exam {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #0078D4;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#start-exam:hover {
+    background-color: #186aaa;
+}
+
+/* Thêm vào cuối file CSS */
+.subject-list {
+    margin-top: 20px; /* Khoảng cách giữa danh sách kỳ thi và danh sách môn thi */
+    display: none; /* Mặc định ẩn danh sách môn thi */
+}
+
+.subject-list h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.subject-list ul {
+    list-style-type: none;
+}
+
+.subject-list button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #BB2019;
+    color: #fff;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.subject-list button:hover {
+    background-color: #881009;
+}
+
+.subject-list button:focus {
+    background-color: #5f0500;
+}
+
+.subject-list button li {
+    font-size: 16px;
+}
+
+#logout-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #BB2019;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px; /* Khoảng cách giữa nút đăng xuất và các phần khác */
+}
+
+#logout-btn:hover {
+    background-color: #881009;
+}
+

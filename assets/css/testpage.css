@@ -1,0 +1,171 @@
+/* body {
+    background-color: #344a72;
+    font-family: "Roboto", sans-serif;
+  }
+  
+  .signup-box {
+    width: 360px;
+    height: 620px;
+    margin-left:38%;
+    margin-top: 3%;
+    background-color: white;
+    border-radius: 3px;
+  }
+  
+  .login-box {
+    width: 360px;
+    height: 280px;
+    margin-top: 10%;
+    margin-left: 38%;
+    border-radius: 3px;
+    background-color: white;
+  }
+  
+  h1 {
+    text-align: center;
+    padding-top: 15px;
+  }
+  
+  h4 {
+    text-align: center;
+  }
+  
+  form {
+    width: 300px;
+    margin-left: 20px;
+  }
+  
+  form label {
+    display: flex;
+    margin-top: 20px;
+    font-size: 18px;
+  }
+  
+  form input {
+    width: 100%;
+    padding: 7px;
+    border: none;
+    border: 1px solid gray;
+    border-radius: 6px;
+    outline: none;
+  }
+  input[type="button"] {
+    width: 320px;
+    height: 35px;
+    margin-top: 20px;
+    border: none;
+    background-color: #49c1a2;
+    color: white;
+    font-size: 18px;
+  }
+  p {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 15px;
+  }
+  .para-2 {
+    text-align: center;
+    color: white;
+    font-size: 15px;
+    margin-top: -10px;
+  }
+  .para-2 a {
+    color: #49c1a2;
+  } */
+
+  /* CSS của trang bài thi và trang kết quả có thể được thêm vào trong file style.css */
+
+/* #timer {
+  margin-top: 20px;
+}
+
+#result-page {
+  display: none;
+} */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #F4F5F7;
+}
+
+header {
+  background-color: #e3342f;;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+  margin: 0px;
+  border-radius: 1px;
+}
+h2 {
+  margin-block: 10px;
+  text-align: center;
+  
+}
+.container {
+  max-width: 500px;
+  margin: 20px auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.page {
+  margin-bottom: 2rem;
+}
+
+h2 {
+  margin-block: 10px;
+  text-align: center;
+  
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  margin-bottom: 0.5rem;
+}
+
+#timer {
+  margin-top: 20px;
+}
+
+#result-page {
+  display: none;
+}
+
+#answers-container p {
+  margin-bottom: 1rem;
+}
+
+#answers-container p strong {
+  font-weight: bold;
+}
+
+#score, #grade {
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+#exam-grade {
+  color: #e3342f;
+}
+

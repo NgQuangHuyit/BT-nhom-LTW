@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiểm tra Online</title>
+    <link rel="stylesheet" type="text/css" href="../assets/css/testpage.css">
+    <script src="../assets/js/test.js"></script>
+
+</head>
+<body>
+    <header>
+        <h1>
+            Bài kiểm tra</h1>
+    </header>
+    <div class="container">
+        <!-- Trang Bài Thi -->
+        <div id="exam-page" class="page">
+            <h2>Bài Thi</h2>
+            <div id="question-container">
+                <!-- Câu hỏi sẽ được tạo ra thông qua JavaScript -->
+            </div>
+            <button id="submit-exam-btn">Nộp bài</button>
+            <div id="timer">Thời gian còn lại: <span id="time-left"></span></div>
+        </div>
+        <!-- Trang Kết Quả -->
+        <div id="result-page" class="page">
+            <h2>Kết Quả</h2>
+            <p id="score">Số câu trả lời đúng: <span id="correct-answers"></span> / <span id="total-questions"></span></p>
+            <p id="grade">Điểm số: <span id="exam-grade"></span></p>
+            <div id="answers-container">
+                <!-- Câu trả lời và đáp án sẽ được tạo ra thông qua JavaScript -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>

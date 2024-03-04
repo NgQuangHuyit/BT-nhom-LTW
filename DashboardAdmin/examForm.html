@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tạo/Chỉnh sửa bài thi</title>
+    <link rel="stylesheet" href="../assets/css/examForm.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    <script src="../assets/js/examForm.js"></script>
+</head>
+<body>
+
+    <div class="quiz-container">
+        <h1>Tạo bài thi</h1>
+        
+        <div class="form-container">
+            <label for="quizName">Tên đề thi:</label>
+            <input type="text" id="quizName" placeholder="Nhập tên đề thi">
+            <label for="quizDescription">Mô tả:</label>
+            <textarea id="quizDescription" placeholder="Nhập mô tả đề thi"></textarea>
+            <label for="quizType">Loại đề thi:</label>
+            <select id="quizType" onchange="updateQuizTime()">
+                <option value="Tự do">Tự do</option>
+                <option value="Có thời gian">Có thời gian</option>
+            </select>
+            <div id="timeSection" style="display: none;">
+                <label for="quizTime">Thời gian làm bài (phút):</label>
+                <input type="number" id="quizTime" placeholder="Nhập thời gian làm bài">
+                <div id="displayQuizTime"></div>
+            </div>
+            <div class="question-list">
+                <h2>Danh sách câu hỏi</h2>
+                <p id="questionCount">Tổng số câu hỏi: 0</p>
+                <ul id="questionList"></ul>
+                <div class="input-container">
+                    <input type="text" id="questionInput" placeholder="Thêm câu hỏi mới">
+                    <button class="btn btn--success"  onclick="addQuestion()">Thêm câu hỏi</button>
+                </div>
+            </div>
+            <input type="file" id="excelFile" accept=".xlsx, .xls" />
+            <button class="btn btn--success" onclick="importExcel()">Import từ Excel</button>
+            <button class="btn btn--success" onclick="createQuiz()">Tạo bài thi</button>
+            
+        </div>
+    </div>
+</body>
+</html>

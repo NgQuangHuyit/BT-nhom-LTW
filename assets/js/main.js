@@ -1,252 +1,158 @@
 document.addEventListener("DOMContentLoaded", function() {
-    function clickNarbarItem() {
-        let navbarItems = document.querySelectorAll('.nav__item');
-        let tabId = 0
-        navbarItems.forEach(item => {
-            item.addEventListener('click', function() {
-                let tabs = document.querySelectorAll('.tab');
-                tabs.forEach(tab => {
-                    tab.classList.remove('tab--active');
-                });
-                if (this.id == 'list-exams') {
-                    tabs[0].classList.add('tab--active');
-                }
-                if (this.id == 'list-users') {
-                    tabs[1].classList.add('tab--active');
-                }
-                if (this.id == 'statistics') {
-                    tabs[2].classList.add('tab--active');
-                }
-                navbarItems.forEach(item => {
-                    item.classList.remove('nav__item--active');
-                });
-                this.classList.add('nav__item--active');
-                
-            });
+    const loginForm = document.getElementById("login-form");
+    const registerForm = document.getElementById("register-form");
+    const registerLink = document.getElementById("register-link");
+    const loginLink = document.getElementById("login-link");
+
+    registerLink.addEventListener("click", function(event) {
+        event.preventDefault();
+        loginForm.style.display = "none";
+        registerForm.style.display = "block";
+    });
+
+    loginLink.addEventListener("click", function(event) {
+        event.preventDefault();
+        loginForm.style.display = "block";
+        registerForm.style.display = "none";
+    });
+
+    //đăng xuất
+    document.addEventListener('DOMContentLoaded', function() {
+        // Lắng nghe sự kiện click vào nút "Đăng xuất"
+        document.getElementById('logout-btn').addEventListener('click', function() {
+            // Chuyển hướng về trang index
+            window.location.href = 'index.html';
         });
+    });
+
+    const demoUsers = [
+        {
+            username: "admin",
+            password: "admin"
+        },
+        {
+            username: "user",
+            password: "user"
+        }
+    ];
+
+    // Hàm kiểm tra tài khoản
+    function isUserExist(username, password) {
+        // Duyệt qua mỗi đối tượng trong mảng users
+        for (var i = 0; i < demoUsers.length; i++) {
+            // So sánh username và password
+            if (demoUsers[i].username === username && demoUsers[i].password === password) {
+                return true; // Trả về true nếu tìm thấy tài khoản
+            }
+        }
+        return false; // Trả về false nếu không tìm thấy tài khoản
     }
 
-    clickNarbarItem();
-    table1_data = [
-        {
-            id: 1, 
-            tenkithi: 'Giua ki I 2022', 
-            monthi: 'Lap trinh web',
-            ngaythi: "23/12/2023",
-            cathi: "18:00",
-            socau: 50
-        },
-        {
-            id: 2, 
-            tenkithi: 'Giua ki I 2022', 
-            monthi: 'Lap trinh web',
-            ngaythi: "23/12/2023",
-            cathi: "18:00",
-            socau: 50
-        },
-        {
-            id: 3, 
-            tenkithi: 'Giua ki I 2022', 
-            monthi: 'Lap trinh web',
-            ngaythi: "23/12/2023",
-            cathi: "18:00",
-            socau: 50
-        }, 
-        {
-            id: 4, 
-            tenkithi: 'Giua ki I 2022', 
-            monthi: 'Lap trinh web',
-            ngaythi: "23/12/2023",
-            cathi: "18:00",
-            socau: 50
-        }
-    ]
-
-    table1_data.forEach(item => {
-        var row = document.createElement('tr');
-        row.innerHTML = `
-        <tr>
-        <td class="text-start"><span>${item.id}</span></td>
-        <td class="text-start">${item.tenkithi}</td>
-        <td class="text-start">${item.monthi}</td>
-        <td class="text-start">${item.ngaythi}</td>
-        <td class="text-start">${item.cathi}</td>
-        <td class="text-start">${item.socau}</td>
-        <td class="text-center">
-            <button type="submit" class="btn btn--danger btn--size-s">Xoa</button>
-            <button type="submit" class="btn btn--warn btn--size-s">Sua</button>
-        </td>
-    </tr>
-        `
-        document.getElementById('tbody_tbl1').appendChild(row);
-    })
-
-    table2_data = [
-        {
-            masv: 'B21DCCN002',
-            tenSv: 'Nguyen Van A',
-            lop: 'D17CQCN01-N',
-            ngaysinh: '12/12/2002',
-            last: '19:00 18/12/2023'
-        },
-        {
-            masv: 'B21DCCN002',
-            tenSv: 'Nguyen Van A',
-            lop: 'D17CQCN01-N',
-            ngaysinh: '12/12/2002',
-            last: '19:00 18/12/2023'
-        },
-        {
-            masv: 'B21DCCN002',
-            tenSv: 'Nguyen Van A',
-            lop: 'D17CQCN01-N',
-            ngaysinh: '12/12/2002',
-            last: '19:00 18/12/2023'
-        },
-        {
-            masv: 'B21DCCN002',
-            tenSv: 'Nguyen Van A',
-            lop: 'D17CQCN01-N',
-            ngaysinh: '12/12/2002',
-            last: '19:00 18/12/2023'
-        },
-        {
-            masv: 'B21DCCN002',
-            tenSv: 'Nguyen Van A',
-            lop: 'D17CQCN01-N',
-            ngaysinh: '12/12/2002',
-            last: '19:00 18/12/2023'
-        },
-        {
-            masv: 'B21DCCN002',
-            tenSv: 'Nguyen Van A',
-            lop: 'D17CQCN01-N',
-            ngaysinh: '12/12/2002',
-            last: '19:00 18/12/2023'
-        },
-        {
-            masv: 'B21DCCN002',
-            tenSv: 'Nguyen Van A',
-            lop: 'D17CQCN01-N',
-            ngaysinh: '12/12/2002',
-            last: '19:00 18/12/2023'
-        },
-        {
-            masv: 'B21DCCN002',
-            tenSv: 'Nguyen Van A',
-            lop: 'D17CQCN01-N',
-            ngaysinh: '12/12/2002',
-            last: '19:00 18/12/2023'
-        },
-        {
-            masv: 'B21DCCN002',
-            tenSv: 'Nguyen Van A',
-            lop: 'D17CQCN01-N',
-            ngaysinh: '12/12/2002',
-            last: '19:00 18/12/2023'
-        }
-    ]
-
-    table2_data.forEach(item => {
-        var row = document.createElement('tr');
-        row.innerHTML = `
-        <tr>
-        <td class="text-start"><span>${item.masv}</span></td>
-        <td class="text-start">${item.tenSv}</td>
-        <td class="text-start">${item.lop}</td>
-        <td class="text-start">${item.ngaysinh}</td>
-        <td class="text-start">${item.last}</td>
-        <td class="text-center">
-            <button type="submit" class="btn btn--danger btn--size-s">Xoa</button>
-            <button type="submit" class="btn btn--warn btn--size-s">Sua</button>
-        </td>
-    </tr>
-        `
-        document.getElementById('tbody_tbl2').appendChild(row);
-
-    })
-    // charts create
-    var data1 = {
-        labels: ['0-3', '3-5', '5-7', '7-9', '9-10'],
-        datasets: [{
-            label: 'Số lượng ',
-            backgroundColor: 'rgb(81, 130, 155)',
-            borderColor: 'rgba(75, 192, 192, 1)',
-            borderWidth: 1,
-            data: [300, 400, 800, 289, 100],
-        }]
-    };
-
-    // Thiết lập và vẽ biểu đồ cột
-    var ctx01 = document.getElementById('myChart01').getContext('2d');
-    var myChart01 = new Chart(ctx01, {
-        type: 'bar',
-        data: data1,
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
+    document.getElementById("login-form").addEventListener("submit", function(event) {
+        event.preventDefault(); // Ngăn chặn việc gửi form
+        // Xác thực tên người dùng và mật khẩu (đoạn mã demo)
+        var username = document.getElementById("Username").value;
+        var password = document.getElementById("password").value;
+        
+        // Xác thực thành công, hiển thị phần nội dung của trang chính
+        if (isUserExist(username, password)) {
+            if (username === "admin") {
+            window.location.href = "DashboardAdmin";}
+            else {
+                window.location.href = "User";
             }
+        } else {
+            alert("Tên người dùng hoặc mật khẩu không đúng!");
         }
     });
     
-    var data2 = {
-        labels: ['tham-gia', 'không tham gia'],
-        datasets: [{
-            label: 'Ti le',
-            backgroundColor: [
-                'rgb(255, 99, 132)',
-                'rgb(54, 162, 235)',
-              ],
-            borderColor: 'rgba(75, 192, 192, 1)',
-            borderWidth: 1,
-            data: [80, 20],
 
-        }]
-    };
+    registerForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+        const newUsername = document.getElementById("newUsername").value;
+        const email = document.getElementById("email").value;
+        const newPassword = document.getElementById("newPassword").value;
+        const confirmPassword = document.getElementById("confirmPassword").value;
 
-    var ct2 = document.getElementById('myChart02').getContext('2d');
-    var myChart2 = new Chart(ct2, {
-        type: 'doughnut',
-        data: data2,
-        options: {
-            plugins: {
-                title: {
-                    display: true,
-                    text: 'Ti le tham gia thi'
-                },
-                
-            }
+        // Kiểm tra xác nhận mật khẩu
+        if (newPassword !== confirmPassword) {
+            alert("Mật khẩu không khớp. Vui lòng nhập lại.");
+            return;
+        }
+        else {
+            demoUsers.push({username: newUsername, password: newPassword});
+        }
+        // Xử lý đăng ký ở đây (chưa cần gọi đến backend)
+        alert("Đăng ký thành công!");
+        loginForm.style.display = "block";
+        registerForm.style.display = "none";
+    });
+});
+
+// Lấy ô tìm kiếm và danh sách các mục trong exam-list
+var searchBox = document.getElementById('search');
+var examItems = document.querySelectorAll('.exam-list .exam-option');
+
+// Lắng nghe sự kiện khi người dùng nhập vào ô tìm kiếm
+searchBox.addEventListener('input', function() {
+    var searchTerm = searchBox.value.toLowerCase();
+
+    // Lặp qua từng mục và ẩn/hiện tùy theo từ khóa tìm kiếm
+    examItems.forEach(function(item) {
+        var examName = item.querySelector('li').textContent.toLowerCase();
+        var examStatus = item.querySelector('button').classList.contains('free') ? 'free' : 'scheduled';
+        if (examName.includes(searchTerm) || examStatus.includes(searchTerm)) {
+            item.style.display = 'block';
+        } else {
+            item.style.display = 'none';
         }
     });
+});
 
-    var data3 = {
-        labels: [''],
-        datasets: [{
-            label: ['diem trung binh' ,''],
-            backgroundColor: [
-                'rgb(255, 99, 132)',
-                'rgb(54, 162, 235)',
-              ],
-            borderColor: 'rgba(75, 192, 192, 1)',
-            borderWidth: 1,
-            data: [7.7,2.3],
+document.addEventListener("DOMContentLoaded", function() {
+    var examOptions = document.querySelectorAll('.exam-option');
+    var subjectList = document.getElementById('subject-list');
 
-        }]
-    };
-
-    var ct3 = document.getElementById('myChart03').getContext('2d');
-    var myChart3 = new Chart(ct3, {
-        type: 'doughnut',
-        data: data3,
-        options: {
-            plugins: {
-                title: {
-                    display: true,
-                    text: 'Điểm trung bình'
-                }
+    examOptions.forEach(function(option) {
+        option.addEventListener('click', function() {
+            if (subjectList.style.display === 'none') {
+                // Nếu đang ẩn, thì hiển thị danh sách môn thi
+                subjectList.style.display = 'block';
+            } else {
+                // Nếu đang hiển thị, thì ẩn danh sách môn thi
+                subjectList.style.display = 'none';
             }
-        }
+        });
     });
-})
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Lấy danh sách các exam-option
+    var examOptions = document.querySelectorAll('.exam-option');
+
+    // Lắng nghe sự kiện click trên mỗi exam-option
+    examOptions.forEach(function(option) {
+        option.addEventListener('click', function() {
+            // Tìm phần tử chứa danh sách môn thi liên quan đến exam-option được nhấp vào
+            var subjectList = option.querySelector('.subject-list');
+            
+            // Kiểm tra xem danh sách môn thi có đang được hiển thị hay không
+            if (subjectList.style.display === 'none') {
+                // Nếu đang ẩn, thì hiển thị danh sách môn thi
+                subjectList.style.display = 'block';
+            } else {
+                // Nếu đang hiển thị, thì ẩn danh sách môn thi
+                subjectList.style.display = 'none';
+            }
+        });
+    });
+});
+
+const startExamBtn = document.getElementById('start-exam');
+
+    startExamBtn.addEventListener('click', function() {
+        // Chuyển hướng sang trang bài thi khi nhấn vào nút "Bắt đầu làm bài"
+        window.location.href = 'testPage.html';
+    });
+
+
