@@ -1,87 +1,3 @@
-/* body {
-    background-color: #344a72;
-    font-family: "Roboto", sans-serif;
-  }
-  
-  .signup-box {
-    width: 360px;
-    height: 620px;
-    margin-left:38%;
-    margin-top: 3%;
-    background-color: white;
-    border-radius: 3px;
-  }
-  
-  .login-box {
-    width: 360px;
-    height: 280px;
-    margin-top: 10%;
-    margin-left: 38%;
-    border-radius: 3px;
-    background-color: white;
-  }
-  
-  h1 {
-    text-align: center;
-    padding-top: 15px;
-  }
-  
-  h4 {
-    text-align: center;
-  }
-  
-  form {
-    width: 300px;
-    margin-left: 20px;
-  }
-  
-  form label {
-    display: flex;
-    margin-top: 20px;
-    font-size: 18px;
-  }
-  
-  form input {
-    width: 100%;
-    padding: 7px;
-    border: none;
-    border: 1px solid gray;
-    border-radius: 6px;
-    outline: none;
-  }
-  input[type="button"] {
-    width: 320px;
-    height: 35px;
-    margin-top: 20px;
-    border: none;
-    background-color: #49c1a2;
-    color: white;
-    font-size: 18px;
-  }
-  p {
-    text-align: center;
-    padding-top: 20px;
-    font-size: 15px;
-  }
-  .para-2 {
-    text-align: center;
-    color: white;
-    font-size: 15px;
-    margin-top: -10px;
-  }
-  .para-2 a {
-    color: #49c1a2;
-  } */
-
-  /* CSS của trang bài thi và trang kết quả có thể được thêm vào trong file style.css */
-
-/* #timer {
-  margin-top: 20px;
-}
-
-#result-page {
-  display: none;
-} */
 
 body {
   font-family: Arial, sans-serif;
@@ -90,14 +6,59 @@ body {
   background-color: #F4F5F7;
 }
 
-header {
-  background-color: #e3342f;;
+.header {
+  height: 48px;
+  width: 100%;
+  background-color: #ba2623;
   color: white;
-  text-align: center;
-  padding: 1rem 0;
-  margin: 0px;
-  border-radius: 1px;
+  position: fixed; /* Thay đổi vị trí thành fixed */
+  display: flex;
+  top: 0; /* Đảm bảo thanh task bar ở trên cùng của trang */
 }
+
+.header__title {
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-left: 30px;
+  padding: 0;
+  line-height: 48px;
+  text-align: center;
+
+}
+
+.header__avt {
+  display: flex;
+  justify-content: center;
+}
+
+.header__avt img {
+  padding: 10px 14px;
+  background-color: white;
+  border-radius: 40px;
+  margin-right: 15px;
+}
+.header__logout {
+  display: flex;
+  align-items: center;
+  align-self: right;
+  border-radius: 50px;
+  text-align: center;
+  padding: 0 15px;
+  font-size: 1.3rem;
+}
+
+.header__logout:hover {
+  background-color: #fe5658;
+}
+.header__logout a {
+  text-decoration: none;
+  color: white;
+}
+
+.header__spacer {
+  width: 75%;
+}
+
 h2 {
   margin-block: 10px;
   text-align: center;
@@ -105,7 +66,7 @@ h2 {
 }
 .container {
   max-width: 500px;
-  margin: 20px auto;
+  margin: 68px auto 20px; /* Thêm margin-top 68px để tránh bị che phủ bởi thanh task bar */
   background-color: white;
   padding: 20px;
   border-radius: 10px;
