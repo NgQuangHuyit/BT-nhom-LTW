@@ -1,19 +1,32 @@
 document.addEventListener("DOMContentLoaded", function() {
     const loginForm = document.getElementById("login-form");
     const registerForm = document.getElementById("register-form");
+    const reForm = document.getElementById('re-form');
     const registerLink = document.getElementById("register-link");
+    const reLink = document.getElementById('re-link');
     const loginLink = document.getElementById("login-link");
 
-    registerLink.addEventListener("click", function(event) {
+    reLink.addEventListener('click', function(event) {
         event.preventDefault();
-        loginForm.style.display = "none";
-        registerForm.style.display = "block";
+        loginForm.style.display = 'none';
+        registerForm.style.display = 'none';
+        reForm.style.display = 'block';
     });
 
-    loginLink.addEventListener("click", function(event) {
+    // Hiển thị form đăng ký khi nhấn vào liên kết "Đăng ký"
+    registerLink.addEventListener('click', function(event) {
         event.preventDefault();
-        loginForm.style.display = "block";
-        registerForm.style.display = "none";
+        loginForm.style.display = 'none';
+        registerForm.style.display = 'block';
+        reForm.style.display = 'none';
+    });
+
+    // Hiển thị form đăng nhập khi nhấn vào liên kết "Đăng nhập"
+    loginLink.addEventListener('click', function(event) {
+        event.preventDefault();
+        loginForm.style.display = 'block';
+        registerForm.style.display = 'none';
+        reForm.style.display = 'none';
     });
 
     //đăng xuất
@@ -28,11 +41,13 @@ document.addEventListener("DOMContentLoaded", function() {
     const demoUsers = [
         {
             username: "admin",
-            password: "admin"
+            password: "admin",
+            email: "admin@gmail.com"
         },
         {
             username: "user",
-            password: "user"
+            password: "user",
+            email: "user@gmail.com"
         }
     ];
 
@@ -48,7 +63,16 @@ document.addEventListener("DOMContentLoaded", function() {
         return false; // Trả về false nếu không tìm thấy tài khoản
     }
 
-    document.getElementById("login-form").addEventListener("submit", function(event) {
+    function isEmailExist(email) {
+        for(var i = 0; i < demoUsers.length; i++) {
+            if(demoUsers[i].email === email) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    loginForm.addEventListener("submit", function(event) {
         event.preventDefault(); // Ngăn chặn việc gửi form
         // Xác thực tên người dùng và mật khẩu (đoạn mã demo)
         var username = document.getElementById("Username").value;
@@ -65,12 +89,29 @@ document.addEventListener("DOMContentLoaded", function() {
             alert("Tên người dùng hoặc mật khẩu không đúng!");
         }
     });
-    
+
+    reForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+        const confirmEmail = document.getElementById("email").value;
+
+        if(isEmailExist(confirmEmail)) {
+            alert("Đã gửi mật khẩu mới về gmail của bạn!");
+            loginForm.style.display = 'block';
+            registerForm.style.display = 'none';
+            reForm.style.display = 'none';
+        } else {
+            alert("Email này chưa được đăng kí? Đăng kí ngay!");
+            loginForm.style.display = 'none';
+            registerForm.style.display = 'block';
+            reForm.style.display = 'none';
+        }
+
+    })
 
     registerForm.addEventListener("submit", function(event) {
         event.preventDefault();
         const newUsername = document.getElementById("newUsername").value;
-        const email = document.getElementById("email").value;
+        const newEmail = document.getElementById("email").value;
         const newPassword = document.getElementById("newPassword").value;
         const confirmPassword = document.getElementById("confirmPassword").value;
 
@@ -80,79 +121,14 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
         else {
-            demoUsers.push({username: newUsername, password: newPassword});
+            demoUsers.push({username: newUsername, password: newPassword, email: newEmail});
         }
         // Xử lý đăng ký ở đây (chưa cần gọi đến backend)
         alert("Đăng ký thành công!");
         loginForm.style.display = "block";
         registerForm.style.display = "none";
+        reForm.style.display = "none";
     });
 });
-
-// Lấy ô tìm kiếm và danh sách các mục trong exam-list
-var searchBox = document.getElementById('search');
-var examItems = document.querySelectorAll('.exam-list .exam-option');
-
-// Lắng nghe sự kiện khi người dùng nhập vào ô tìm kiếm
-searchBox.addEventListener('input', function() {
-    var searchTerm = searchBox.value.toLowerCase();
-
-    // Lặp qua từng mục và ẩn/hiện tùy theo từ khóa tìm kiếm
-    examItems.forEach(function(item) {
-        var examName = item.querySelector('li').textContent.toLowerCase();
-        var examStatus = item.querySelector('button').classList.contains('free') ? 'free' : 'scheduled';
-        if (examName.includes(searchTerm) || examStatus.includes(searchTerm)) {
-            item.style.display = 'block';
-        } else {
-            item.style.display = 'none';
-        }
-    });
-});
-
-document.addEventListener("DOMContentLoaded", function() {
-    var examOptions = document.querySelectorAll('.exam-option');
-    var subjectList = document.getElementById('subject-list');
-
-    examOptions.forEach(function(option) {
-        option.addEventListener('click', function() {
-            if (subjectList.style.display === 'none') {
-                // Nếu đang ẩn, thì hiển thị danh sách môn thi
-                subjectList.style.display = 'block';
-            } else {
-                // Nếu đang hiển thị, thì ẩn danh sách môn thi
-                subjectList.style.display = 'none';
-            }
-        });
-    });
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Lấy danh sách các exam-option
-    var examOptions = document.querySelectorAll('.exam-option');
-
-    // Lắng nghe sự kiện click trên mỗi exam-option
-    examOptions.forEach(function(option) {
-        option.addEventListener('click', function() {
-            // Tìm phần tử chứa danh sách môn thi liên quan đến exam-option được nhấp vào
-            var subjectList = option.querySelector('.subject-list');
-            
-            // Kiểm tra xem danh sách môn thi có đang được hiển thị hay không
-            if (subjectList.style.display === 'none') {
-                // Nếu đang ẩn, thì hiển thị danh sách môn thi
-                subjectList.style.display = 'block';
-            } else {
-                // Nếu đang hiển thị, thì ẩn danh sách môn thi
-                subjectList.style.display = 'none';
-            }
-        });
-    });
-});
-
-const startExamBtn = document.getElementById('start-exam');
-
-    startExamBtn.addEventListener('click', function() {
-        // Chuyển hướng sang trang bài thi khi nhấn vào nút "Bắt đầu làm bài"
-        window.location.href = 'testPage.html';
-    });
 
 

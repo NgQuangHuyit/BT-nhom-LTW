@@ -34,7 +34,7 @@
             <!-- Checkbox nhớ mật khẩu và liên kết quên mật khẩu -->
             <div class="remember-forgot">
                 <label><input type="checkbox" id="checkbox">Nhớ mật khẩu</label>
-                <a href="#">Quên mật khẩu?</a>
+                <a href="#" id="re-link">Quên mật khẩu?</a>
             </div>
 
             <!-- Nút đăng nhập và liên kết đăng ký -->
@@ -76,6 +76,13 @@
                     <a href="#" id="login-link">Đăng nhập</a>
                 </p>
             </div>
+        </form>
+        <form action="" id="re-form" style="display: none;">
+            <h1>Vui lòng nhập gmail bạn đã đăng kí</h1>
+            <div class="input-box">
+                <input type="email" name="email" id="email" required placeholder="Email">
+            </div>
+            <button type="submit" class="btn">Xác nhận</button>
         </form>
     </div>
 </body>

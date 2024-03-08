@@ -1,3 +1,4 @@
+/* Reset CSS */
 * {
     margin: 0;
     padding: 0;
@@ -6,214 +7,108 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-image: url('https://images.unsplash.com/photo-1561502053-75e221f3ee9b'); /* Đường dẫn đến hình nền */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed; /* Giữ hình nền cố định khi cuộn trang */
+    background-color: #f4f4f4;
 }
 
 .header {
     height: 48px;
     width: 100%;
-    background-color: #ba2623;
+    background-color: #ba2623; /* Màu đỏ */
     color: white;
-    position: fixed;
     display: flex;
+    align-items: center;
+    padding: 0 20px;
 }
 
 .header__title {
     font-size: 1.4rem;
     font-weight: 400;
-    margin-left: 30px;
-    padding: 0;
-    line-height: 48px;
-    text-align: center;
-
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
-.header__avt {
-    display: flex;
-    justify-content: center;
+.header__title .menu-option {
+    display: none;
 }
 
 .header__avt img {
-    padding: 10px 14px;
-    background-color: white;
-    border-radius: 40px;
-    margin-right: 15px;
-}
-.header__logout {
-    display: flex;
-    align-items: center;
-    align-self: right;
-    border-radius: 50px;
-    text-align: center;
-    padding: 0 15px;
-    font-size: 1.3rem;
-}
-
-.header__logout:hover {
-    background-color: #fe5658;
-}
-.header__logout a {
-    text-decoration: none;
-    color: white;
-}
-
-.header__spacer {
-    width: 75%;
-}
-
-
-.main-content {
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
     background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
+.header__logout {
+    margin-left: auto;
+}
+
+.header__logout a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.4rem;
+}
+
+
+.middle {
     text-align: center;
+    margin-top: 20px;
 }
 
-.exam-list {
-    list-style-type: none;
+.middle h1 {
+    margin-bottom: 10px;
+}
+ 
+.main-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 20px auto;
 }
 
 .exam-option {
-    margin-bottom: 10px;
-}
-
-.exam-option button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #BB2019;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.exam-option button:hover {
-    background-color: #881009;
-}
-
-.search-container {
-    display: flex;
-    align-items: center;
+    width: 22%;
+    height: 200%; /* Chiều dài gấp đôi chiều rộng */
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
     margin-bottom: 20px;
-}
-
-#search {
-    flex-grow: 1; 
-    padding: 10px;
-    border: 2px solid #fff;
-    border-radius: 5px;
-    font-size: 16px;
-    outline: none;
-    transition: border-color 0.3s;
-}
-
-#search::placeholder {
-    color: #6e7a86; /* Thay đổi màu placeholder */
-}
-
-#search-btn {
-    background-color: #fff;
-    color: #999;
-    border: none;
-    border-radius: 0 5px 5px 0;
-    padding: 10px 15px; /* Điều chỉnh padding */
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-#search-btn i {
-    font-size: 20px;
-}
-
-#search-btn:hover {
-    background-color: #6e7a86;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 
-#start-exam {
-    display: block;
+.exam-option .box {
+    text-align: center;
+}
+
+.exam-option .img img {
     width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #0078D4;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-#start-exam:hover {
-    background-color: #186aaa;
-}
-
-/* Thêm vào cuối file CSS */
-.subject-list {
-    margin-top: 20px; /* Khoảng cách giữa danh sách kỳ thi và danh sách môn thi */
-    display: none; /* Mặc định ẩn danh sách môn thi */
-}
-
-.subject-list h2 {
-    font-size: 18px;
+    border-radius: 8px;
     margin-bottom: 10px;
 }
 
-.subject-list ul {
-    list-style-type: none;
-}
-
-.subject-list button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #BB2019;
-    color: #fff;
+.exam-option h2 {
+    font-size: 1.5rem;
     margin-bottom: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
 }
 
-.subject-list button:hover {
-    background-color: #881009;
+.exam-option p {
+    font-size: 1rem;
+    margin-bottom: 10px;
 }
 
-.subject-list button:focus {
-    background-color: #5f0500;
-}
-
-.subject-list button li {
-    font-size: 16px;
-}
-
-#logout-btn {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    border: none;
+.exam-option .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff5722;
+    color: white;
+    text-decoration: none;
     border-radius: 5px;
-    background-color: #BB2019;
-    color: #fff;
-    cursor: pointer;
     transition: background-color 0.3s;
-    margin-top: 20px; /* Khoảng cách giữa nút đăng xuất và các phần khác */
 }
 
-#logout-btn:hover {
-    background-color: #881009;
+.exam-option .btn:hover {
+    background-color: #e64a19;
 }
 
