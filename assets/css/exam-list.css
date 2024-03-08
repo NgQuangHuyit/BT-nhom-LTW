@@ -85,6 +85,10 @@ body {
     text-align: center;
 }
 
+.exam-option .box:hover {
+    scale: 1.1;
+}
+
 .exam-option .img img {
     width: 100%;
     border-radius: 8px;
