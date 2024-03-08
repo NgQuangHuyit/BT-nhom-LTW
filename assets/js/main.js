@@ -63,6 +63,15 @@ document.addEventListener("DOMContentLoaded", function() {
         return false; // Trả về false nếu không tìm thấy tài khoản
     }
 
+    function isUsernameExist(username) {
+        for(var i = 0; i < demoUsers.length; i++) {
+            if(demoUsers[i].username === username) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     function isEmailExist(email) {
         for(var i = 0; i < demoUsers.length; i++) {
             if(demoUsers[i].email === email) {
@@ -115,19 +124,23 @@ document.addEventListener("DOMContentLoaded", function() {
         const newPassword = document.getElementById("newPassword").value;
         const confirmPassword = document.getElementById("confirmPassword").value;
 
-        // Kiểm tra xác nhận mật khẩu
-        if (newPassword !== confirmPassword) {
-            alert("Mật khẩu không khớp. Vui lòng nhập lại.");
-            return;
+        if(isUsernameExist(newUsername)) {
+            alert("Tài khoản đã được đăng kí. Vui lòng đăng kí tài khoản khác!");
+        } else {
+            // Kiểm tra xác nhận mật khẩu
+            if (newPassword !== confirmPassword) {
+                alert("Mật khẩu không khớp. Vui lòng nhập lại.");
+                return;
+            }
+            else {
+                demoUsers.push({username: newUsername, password: newPassword, email: newEmail});
+            }
+            // Xử lý đăng ký ở đây (chưa cần gọi đến backend)
+            alert("Đăng ký thành công!");
+            loginForm.style.display = "block";
+            registerForm.style.display = "none";
+            reForm.style.display = "none";
         }
-        else {
-            demoUsers.push({username: newUsername, password: newPassword, email: newEmail});
-        }
-        // Xử lý đăng ký ở đây (chưa cần gọi đến backend)
-        alert("Đăng ký thành công!");
-        loginForm.style.display = "block";
-        registerForm.style.display = "none";
-        reForm.style.display = "none";
     });
 });
 

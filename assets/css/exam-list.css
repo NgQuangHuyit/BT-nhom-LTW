@@ -48,7 +48,6 @@ body {
     font-size: 1.4rem;
 }
 
-
 .middle {
     text-align: center;
     margin-top: 20px;
@@ -56,6 +55,10 @@ body {
 
 .middle h1 {
     margin-bottom: 10px;
+}
+
+.middle p {
+    margin-bottom: 100px;
 }
  
 .main-content {
