@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 window.location.href = "User";
             }
         } else {
-            alert("Tên người dùng hoặc mật khẩu không đúng!");
+            showErrorNotice("Tên đăng nhập hoặc mật khẩu không đúng!");
         }
     });
 
@@ -104,12 +104,12 @@ document.addEventListener("DOMContentLoaded", function() {
         const confirmEmail = document.getElementById("email").value;
 
         if(isEmailExist(confirmEmail)) {
-            alert("Đã gửi mật khẩu mới về gmail của bạn!");
+            showSuccessNotice("Đã gửi mật khẩu mới về gmail của bạn!");
             loginForm.style.display = 'block';
             registerForm.style.display = 'none';
             reForm.style.display = 'none';
         } else {
-            alert("Email này chưa được đăng kí? Đăng kí ngay!");
+            showInfoNotice("Email này chưa được đăng kí? Đăng kí ngay!");
             loginForm.style.display = 'none';
             registerForm.style.display = 'block';
             reForm.style.display = 'none';
@@ -125,18 +125,18 @@ document.addEventListener("DOMContentLoaded", function() {
         const confirmPassword = document.getElementById("confirmPassword").value;
 
         if(isUsernameExist(newUsername)) {
-            alert("Tài khoản đã được đăng kí. Vui lòng đăng kí tài khoản khác!");
+            showErrorNotice("Tài khoản đã được đăng kí. Vui lòng đăng kí tài khoản khác!");
         } else {
             // Kiểm tra xác nhận mật khẩu
             if (newPassword !== confirmPassword) {
-                alert("Mật khẩu không khớp. Vui lòng nhập lại.");
+                showErrorNotice("Mật khẩu không khớp. Vui lòng nhập lại.");
                 return;
             }
             else {
                 demoUsers.push({username: newUsername, password: newPassword, email: newEmail});
             }
             // Xử lý đăng ký ở đây (chưa cần gọi đến backend)
-            alert("Đăng ký thành công!");
+            showSuccessNotice("Đăng ký thành công!");
             loginForm.style.display = "block";
             registerForm.style.display = "none";
             reForm.style.display = "none";

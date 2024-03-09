@@ -5,8 +5,23 @@
 }
 
 * {
-    box-sizing: inherit;
-}
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: system-ui, sans-serif;
+    background-color: #f4f4f5;
+  }
+  
+  body > div {
+    margin: auto;
+  }
+  
 
 html {
     font-size: 100%;

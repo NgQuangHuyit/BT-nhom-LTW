@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
+    showInfoNotice("Ban dang dang nhap voi tu cach Quan tri vien");
     function clickNarbarItem() {
         let navbarItems = document.querySelectorAll('.nav__item');
         let tabId = 0
@@ -25,8 +26,8 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         });
     }
-
     clickNarbarItem();
+
     table1_data = [
         {
             id: 1, 
@@ -62,22 +63,23 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     ]
 
-    table1_data.forEach(item => {
+    table1_data.forEach(function(item, index) {
+        console.log(index);
         var row = document.createElement('tr');
+        row.id = `tbl1_row_${index}`;
         row.innerHTML = `
-        <tr>
-        <td class="text-start"><span>${item.id}</span></td>
-        <td class="text-start">${item.tenkithi}</td>
-        <td class="text-start">${item.monthi}</td>
-        <td class="text-start">${item.ngaythi}</td>
-        <td class="text-start">${item.cathi}</td>
-        <td class="text-start">${item.socau}</td>
-        <td class="text-center">
-            <button type="submit" class="btn btn--danger btn--size-s">Xoa</button>
-            <button type="submit" class="btn btn--warn btn--size-s">Sua</button>
-        </td>
-    </tr>
+            <td class="text-start"><span>${item.id}</span></td>
+            <td class="text-start">${item.tenkithi}</td>
+            <td class="text-start">${item.monthi}</td>
+            <td class="text-start">${item.ngaythi}</td>
+            <td class="text-start">${item.cathi}</td>
+            <td class="text-start">${item.socau}</td>
+            <td class="text-center">
+                <button type="submit" onclick="this.parentNode.parentNode.remove(); showSuccessNotice('Xoa thanh cong ki thi ${item.id}')" id="btn-del-${index}" class="btn btn--danger btn--size-s">Xoa</button>
+                <button type="submit" class="btn btn--warn btn--size-s">Sua</button>
+            </td>
         `
+        console.log(row);
         document.getElementById('tbody_tbl1').appendChild(row);
     })
 
@@ -157,7 +159,7 @@ document.addEventListener("DOMContentLoaded", function() {
         <td class="text-start">${item.ngaysinh}</td>
         <td class="text-start">${item.last}</td>
         <td class="text-center">
-            <button type="submit" class="btn btn--danger btn--size-s">Xoa</button>
+            <button type="submit" onclick="this.parentNode.parentNode.remove(); showSuccessNotice('Xoa thanh cong sinh vien ${item.masv}')" class="btn btn--danger btn--size-s">Xoa</button>
             <button type="submit" class="btn btn--warn btn--size-s">Sua</button>
         </td>
     </tr>
