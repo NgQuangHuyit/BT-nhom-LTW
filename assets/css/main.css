@@ -210,3 +210,20 @@ tr {
     padding: 0 10px;
 }
 
+.search-container {
+    display: flex;
+    align-items: center; /* Center items vertically */
+  }
+  
+  /* Style for the search input */
+  .searchInput {
+    margin: 5px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    outline: none;
+  }
+
+td i:hover {
+    cursor: pointer;
+}

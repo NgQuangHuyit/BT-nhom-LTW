@@ -33,30 +33,30 @@ document.addEventListener("DOMContentLoaded", function() {
             id: 1, 
             tenkithi: 'Giua ki I 2022', 
             monthi: 'Lap trinh web',
-            ngaythi: "23/12/2023",
+            ngaythi: "23/8/2022",
             cathi: "18:00",
             socau: 50
         },
         {
             id: 2, 
-            tenkithi: 'Giua ki I 2022', 
-            monthi: 'Lap trinh web',
-            ngaythi: "23/12/2023",
+            tenkithi: 'Cuoi ki I 2022', 
+            monthi: 'Lich su dang',
+            ngaythi: "23/12/2022",
             cathi: "18:00",
             socau: 50
         },
         {
             id: 3, 
-            tenkithi: 'Giua ki I 2022', 
-            monthi: 'Lap trinh web',
+            tenkithi: 'Giua ki II 2023', 
+            monthi: 'Co so du lieu',
             ngaythi: "23/12/2023",
-            cathi: "18:00",
+            cathi: "15:00",
             socau: 50
         }, 
         {
             id: 4, 
-            tenkithi: 'Giua ki I 2022', 
-            monthi: 'Lap trinh web',
+            tenkithi: 'Cuoi ki II 2023', 
+            monthi: 'Mang may tinh',
             ngaythi: "23/12/2023",
             cathi: "18:00",
             socau: 50
@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     table2_data = [
         {
-            masv: 'B21DCCN002',
+            masv: 'B21DCCN001',
             tenSv: 'Nguyen Van A',
             lop: 'D17CQCN01-N',
             ngaysinh: '12/12/2002',
@@ -93,56 +93,56 @@ document.addEventListener("DOMContentLoaded", function() {
         },
         {
             masv: 'B21DCCN002',
-            tenSv: 'Nguyen Van A',
+            tenSv: 'Nguyen Van B',
+            lop: 'D17CQCN01-N',
+            ngaysinh: '12/12/2003',
+            last: '19:00 18/12/2023'
+        },
+        {
+            masv: 'B21DCCN003',
+            tenSv: 'Nguyen Manh D',
+            lop: 'D17CQCN01-N',
+            ngaysinh: '12/01/2003',
+            last: '19:00 18/12/2023'
+        },
+        {
+            masv: 'B21DCCN004',
+            tenSv: 'Chu Quang E',
+            lop: 'D17CQCN01-N',
+            ngaysinh: '12/02/2002',
+            last: '19:00 18/12/2023'
+        },
+        {
+            masv: 'B21DCCN005',
+            tenSv: 'Nguyen Van F',
+            lop: 'D17CQCN01-N',
+            ngaysinh: '16/12/2002',
+            last: '19:00 18/12/2023'
+        },
+        {
+            masv: 'B21DCCN006',
+            tenSv: 'Chu Dang G',
+            lop: 'D17CQCN01-N',
+            ngaysinh: '19/02/2002',
+            last: '19:00 18/12/2023'
+        },
+        {
+            masv: 'B21DCCN007',
+            tenSv: 'Nguyen Cong H',
             lop: 'D17CQCN01-N',
             ngaysinh: '12/12/2002',
             last: '19:00 18/12/2023'
         },
         {
-            masv: 'B21DCCN002',
-            tenSv: 'Nguyen Van A',
+            masv: 'B21DCCN008',
+            tenSv: 'Nguyen Van I',
             lop: 'D17CQCN01-N',
             ngaysinh: '12/12/2002',
             last: '19:00 18/12/2023'
         },
         {
-            masv: 'B21DCCN002',
-            tenSv: 'Nguyen Van A',
-            lop: 'D17CQCN01-N',
-            ngaysinh: '12/12/2002',
-            last: '19:00 18/12/2023'
-        },
-        {
-            masv: 'B21DCCN002',
-            tenSv: 'Nguyen Van A',
-            lop: 'D17CQCN01-N',
-            ngaysinh: '12/12/2002',
-            last: '19:00 18/12/2023'
-        },
-        {
-            masv: 'B21DCCN002',
-            tenSv: 'Nguyen Van A',
-            lop: 'D17CQCN01-N',
-            ngaysinh: '12/12/2002',
-            last: '19:00 18/12/2023'
-        },
-        {
-            masv: 'B21DCCN002',
-            tenSv: 'Nguyen Van A',
-            lop: 'D17CQCN01-N',
-            ngaysinh: '12/12/2002',
-            last: '19:00 18/12/2023'
-        },
-        {
-            masv: 'B21DCCN002',
-            tenSv: 'Nguyen Van A',
-            lop: 'D17CQCN01-N',
-            ngaysinh: '12/12/2002',
-            last: '19:00 18/12/2023'
-        },
-        {
-            masv: 'B21DCCN002',
-            tenSv: 'Nguyen Van A',
+            masv: 'B21DCCN009',
+            tenSv: 'Nguyen Van L',
             lop: 'D17CQCN01-N',
             ngaysinh: '12/12/2002',
             last: '19:00 18/12/2023'
@@ -161,6 +161,10 @@ document.addEventListener("DOMContentLoaded", function() {
         <td class="text-center">
             <button type="submit" onclick="this.parentNode.parentNode.remove(); showSuccessNotice('Xoa thanh cong sinh vien ${item.masv}')" class="btn btn--danger btn--size-s">Xoa</button>
             <button type="submit" class="btn btn--warn btn--size-s">Sua</button>
+            <a href="../DashboardAdmin/UserResult">
+                <i class="fa-solid fa-address-card" style="margin-left:10px; color: #40A2D8"></i>
+            </a>
+
         </td>
     </tr>
         `
@@ -251,4 +255,44 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
     });
+
+    function searchTable(searchValue, tableID) {
+        if (searchValue === '') { 
+            var table = document.getElementById(tableID);
+            var rows = table.getElementsByTagName('tr');
+            for (var i = 0; i<rows.length; i++) {
+                rows[i].style.display = '';
+            }
+            return;
+        }
+        searchValue = searchValue.toLowerCase();
+        var table = document.getElementById(tableID);
+        var rows = table.getElementsByTagName('tr');
+        for (var i = 0; i<rows.length; i++) {
+            var cells = rows[i].getElementsByTagName('td');
+            var found = false;
+            for (var j = 0; j<cells.length; j++) {
+                cellValue = cells[j].textContent.toLowerCase();
+                if (cellValue.includes(searchValue)){
+                    found = true;
+                    break;
+                }
+            }
+    
+            if (found) {
+                rows[i].style.display = '';
+            } else {
+                rows[i].style.display = 'none';
+            }
+        }
+    
+    }
+
+    document.getElementById('searchInput_01').addEventListener('keyup', function() {
+        searchTable(this.value, 'tbody_tbl1');
+    });
+    document.getElementById('searchInput_02').addEventListener('keyup', function() {
+        searchTable(this.value, 'tbody_tbl2');
+    })
+    
 })
