@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var edit_btn = document.getElementById('edit-btn');
     edit_btn.addEventListener('click', function() {
         console.log('edit');
-        var inputs = document.getElementsByTagName('input');
+        var inputs = document.getElementsByClassName('edit-input');
         for (var i = 0; i < inputs.length; i++) {
             inputs[i].removeAttribute('disabled');
         }
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     save_btn.addEventListener('click', function() {
         console.log('save');
-        var inputs = document.getElementsByTagName('input');
+        var inputs = document.getElementsByClassName('edit-input');
         for (var i = 0; i < inputs.length; i++) {
             inputs[i].setAttribute('disabled', 'disabled');
         }
