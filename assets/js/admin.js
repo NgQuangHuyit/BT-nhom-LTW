@@ -255,37 +255,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    function searchTable(searchValue, tableID) {
-        if (searchValue === '') { 
-            var table = document.getElementById(tableID);
-            var rows = table.getElementsByTagName('tr');
-            for (var i = 0; i<rows.length; i++) {
-                rows[i].style.display = '';
-            }
-            return;
-        }
-        searchValue = searchValue.toLowerCase();
-        var table = document.getElementById(tableID);
-        var rows = table.getElementsByTagName('tr');
-        for (var i = 0; i<rows.length; i++) {
-            var cells = rows[i].getElementsByTagName('td');
-            var found = false;
-            for (var j = 0; j<cells.length; j++) {
-                cellValue = cells[j].textContent.toLowerCase();
-                if (cellValue.includes(searchValue)){
-                    found = true;
-                    break;
-                }
-            }
-    
-            if (found) {
-                rows[i].style.display = '';
-            } else {
-                rows[i].style.display = 'none';
-            }
-        }
-    
-    }
 
     document.getElementById('searchInput_01').addEventListener('keyup', function() {
         searchTable(this.value, 'tbody_tbl1');
