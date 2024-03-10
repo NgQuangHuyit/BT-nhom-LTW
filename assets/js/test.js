@@ -28,91 +28,91 @@ document.addEventListener('DOMContentLoaded', function() {
             choices: ["A. Bit", "B. Byte", "C. Bps (bit per second)", "D. Hz"],
             correctAnswer: 2
         },
-        // {
-        //     question: "Câu hỏi 4: Quá trình dữ liệu di chuyển từ hệ thống máy tính này sang hệ thống máy tính khác phải trải qua giai đoạn nào:",
-        //     choices: ["A. Phân tích dữ liệu", "B. Nén dữ liệu", "C. Đóng gói", "D. Lọc dữ liệu"],
-        //     correctAnswer: 2
-        // },
-        // {
-        //     question: "Câu hỏi 5: Kết nối mạng sử dụng các giao thức khác nhau bằng các:",
-        //     choices: ["A. Bộ chuyển tiếp", "B. Cổng giao tiếp", "C. SONET", "D. Bộ định tuyến"],
-        //     correctAnswer: 3
-        // },
-        // {
-        //     question: "Câu hỏi 6: Nhược điểm của mạng dạng hình sao (Star) là:",
-        //     choices: ["A. Khó cài đặt và bảo trì", "B. Khó khắc phục khi lỗi cáp xảy ra, và ảnh hưởng tới các nút mạng khác", "C. Cần quá nhiều cáp để kết nối tới nút mạng trung tâm", "D. Không có khả năng thay đổi khi đã lắp đặt"],
-        //     correctAnswer: 2
-        // },
-        // {
-        //     question: "Câu hỏi 7: Đặc điểm của mạng dạng Bus:",
-        //     choices: ["A. Tất cả các nút mạng kết nối vào nút mạng trung tâm (ví dụ như Hub)", "B. Tất cả các nút kết nối trên cùng một đường truyền vật lý", "C. Tất cả các nút mạng đều kết nối trực tiếp với nhau", "D. Mỗi nút mạng kết nối với 2 nút mạng còn lại"],
-        //     correctAnswer: 1
-        // },
-        // {
-        //     question: "Câu hỏi 8: Trong kỹ thuật chuyển mạch kênh, trước khi trao đổi thông tin, hệ thống sẽ thiết lập kết nối giữa 2 thực thể bằng một:",
-        //     choices: ["A. Đường truyền vật lý", "B. Kết nối ảo", "C. Đường ảo", "D. Đường truyền logic"],
-        //     correctAnswer: 0
-        // },
-        // {
-        //     question: "Câu hỏi 9: Kết nối liên mạng các mạng LAN, WAN, MAN độc lập với nhau bằng các thiết bị có chức năng:",
-        //     choices: ["A. Kiểm soát lỗi, kiểm soát luồng", "B. Định tuyến", "C. Điều khiển liên kế", "D. Điều khiển lưu lượng và đồng bộ hoá"],
-        //     correctAnswer: 1
-        // },
-        // {
-        //     question: "Câu hỏi 10: Cáp UTP Cat5e sử dụng đầu nối:",
-        //     choices: ["A. RJ - 58", "B. BNC", "C. RJ - 45", "D. ST"],
-        //     correctAnswer: 2
-        // },
-        // {
-        //     question: "Câu hỏi 11: Cáp UTP Cat 5 có bao nhiêu đôi cáp:",
-        //     choices: ["A. 2", "B. 4", "C. 6", "D. 8"],
-        //     correctAnswer: 1
-        // },
-        // {
-        //     question: "Câu hỏi 12: Đặc điểm quan trọng của kiến trúc mạng client/server (khách/chủ):",
-        //     choices: ["A. Client/server là kiến trúc phân cấp, client đóng vai trò yêu cầu và server đáp ứng lại các yêu cầu đó.", "B. Server là host luôn hoạt động, thường có IP cố định, có nhóm các server để chia sẻ công việc. Client có kết nối không liên tục, địa chỉ IP có thể thay đổi, truyền thông với server và thường không truyền thông trực tiếp với client khác.", "C. Câu A và B đều đúng", "D. Câu A và B đều sai"],
-        //     correctAnswer: 2
-        // },
-        // {
-        //     question: "Câu hỏi 13: Khẳng định nào sau đây là đúng khi nói về mạng có cấu trúc điểm- điểm:",
-        //     choices: ["A. Mạng quảng bá", "B. Nối từng cặp node lại với nhau theo một hình học xác định", "C. Mạng lưu và chuyển tiếp (Store - and - Forward)", "D. Các node trung gian: tiếp nhận, lưu trữ tạm thời và gửi tiếp thông tin"],
-        //     correctAnswer: 2
-        // },
-        // {
-        //     question: "Câu hỏi 14: Khẳng định nào sau đây là đúng khi nói về nhược điểm của mạng có cấu trúc điểm-điểm:",
-        //     choices: ["A. Khả năng đụng độ thông tin (collision) thấp", "B. Hiệu suất sử dụng đường truyền thấp, chiếm dụng nhiều tài nguyên", "C. Độ trễ lớn, tốn nhiều thời gian để thiết lập đường truyền và xử lý tại các node", "D. Tốc độ trao đổi thông tin thấp"],
-        //     correctAnswer: 1
-        // },
-        // {
-        //     question: "Câu hỏi 15: Khẳng định nào sau đây là đúng khi nói về đặc trưng của mạng quảng bá:",
-        //     choices: ["A. Tất cả các node cùng truy nhập chung trên một đường truyền vật lý", "B. Nối từng cặp node lại với nhau theo một hình học xác định", "C. Các node trung gian: tiếp nhận, lưu trữ tạm thời và gửi tiếp thông tin", "D. Khả năng đụng độ thông tin (collision) thấp"],
-        //     correctAnswer: 0
-        // },
-        // {
-        //     question: "Câu hỏi 16: Khẳng định nào sau đây là đúng khi nói về mạng chuyển mạch kênh:",
-        //     choices: ["A. Thiết lập liên kết vật lý, truyền dữ liệu và giải phóng liên kết giữa 2 thực thể", "B. Thiết lập liên kết logic, truyền dữ liệu và giải phóng liên kết giữa 2 thực thể", "C. Truyền dữ liệu giữa 2 thực thể", "D. Thiết lập liên kết và giải phóng liên kết giữa 2 thực thể"],
-        //     correctAnswer: 0
-        // },
-        // {
-        //     question: "Câu hỏi 17: Khẳng định nào sau đây là đúng khi nói về mạng chuyển mạch gói:",
-        //     choices: ["A. Gói tin lưu chuyển trên các kết nối logic", "B. Gói tin lưu chuyển trên các kết nối vật lý", "C. Gói tin lưu chuyển độc lập hướng đích", "D. Gói tin lưu chuyển trên các kết nối logic hướng đích và trên một đường có thể có nhiều gói tin cùng lưu chuyển"],
-        //     correctAnswer: 3
-        // },
-        // {
-        //     question: "Câu hỏi 18: Khẳng định nào sau đây là đúng khi nói về quá trình phân mảnh gói tin:",
-        //     choices: ["A. Làm giảm thời gian xử lý", "B. Làm tăng tính linh hoạt của mạng", "C. Ảnh hưởng đến tốc độ trao đổi dữ liệu trong mạng", "D. Tăng tốc độ trao đổi thông tin trong mạng"],
-        //     correctAnswer: 3
-        // },
-        // {
-        //     question: "Câu hỏi 19: Khẳng định nào sau đây là đúng khi nói về truyền dữ liệu theo phương thức hướng liên kết:",
-        //     choices: ["A. Có độ tin cậy cao, đảm bảo chất lượng dịch vụ và có xác nhận", "B. Không cần độ tin cậy cao, chất lượng dịch vụ thấp", "C. Có xác nhận, không kiểm soát lỗi, kiểm soát luồng", "D. Độ tin cậy cao, không xác nhận"],
-        //     correctAnswer: 0
-        // },
-        // {
-        //     question: "Câu hỏi 20: Khẳng định nào sau đây là đúng nói về cấu trúc vật lý của mạng:",
-        //     choices: ["A. Giao thức mạng (Protocol)", "B. Hình trạng mạng (Topology )", "C. Phương tiện truyền", "D. Các dịch vụ mạng"],
-        //     correctAnswer: 1
-        // },
+        {
+            question: "Câu hỏi 4: Quá trình dữ liệu di chuyển từ hệ thống máy tính này sang hệ thống máy tính khác phải trải qua giai đoạn nào:",
+            choices: ["A. Phân tích dữ liệu", "B. Nén dữ liệu", "C. Đóng gói", "D. Lọc dữ liệu"],
+            correctAnswer: 2
+        },
+        {
+            question: "Câu hỏi 5: Kết nối mạng sử dụng các giao thức khác nhau bằng các:",
+            choices: ["A. Bộ chuyển tiếp", "B. Cổng giao tiếp", "C. SONET", "D. Bộ định tuyến"],
+            correctAnswer: 3
+        },
+        {
+            question: "Câu hỏi 6: Nhược điểm của mạng dạng hình sao (Star) là:",
+            choices: ["A. Khó cài đặt và bảo trì", "B. Khó khắc phục khi lỗi cáp xảy ra, và ảnh hưởng tới các nút mạng khác", "C. Cần quá nhiều cáp để kết nối tới nút mạng trung tâm", "D. Không có khả năng thay đổi khi đã lắp đặt"],
+            correctAnswer: 2
+        },
+        {
+            question: "Câu hỏi 7: Đặc điểm của mạng dạng Bus:",
+            choices: ["A. Tất cả các nút mạng kết nối vào nút mạng trung tâm (ví dụ như Hub)", "B. Tất cả các nút kết nối trên cùng một đường truyền vật lý", "C. Tất cả các nút mạng đều kết nối trực tiếp với nhau", "D. Mỗi nút mạng kết nối với 2 nút mạng còn lại"],
+            correctAnswer: 1
+        },
+        {
+            question: "Câu hỏi 8: Trong kỹ thuật chuyển mạch kênh, trước khi trao đổi thông tin, hệ thống sẽ thiết lập kết nối giữa 2 thực thể bằng một:",
+            choices: ["A. Đường truyền vật lý", "B. Kết nối ảo", "C. Đường ảo", "D. Đường truyền logic"],
+            correctAnswer: 0
+        },
+        {
+            question: "Câu hỏi 9: Kết nối liên mạng các mạng LAN, WAN, MAN độc lập với nhau bằng các thiết bị có chức năng:",
+            choices: ["A. Kiểm soát lỗi, kiểm soát luồng", "B. Định tuyến", "C. Điều khiển liên kế", "D. Điều khiển lưu lượng và đồng bộ hoá"],
+            correctAnswer: 1
+        },
+        {
+            question: "Câu hỏi 10: Cáp UTP Cat5e sử dụng đầu nối:",
+            choices: ["A. RJ - 58", "B. BNC", "C. RJ - 45", "D. ST"],
+            correctAnswer: 2
+        },
+        {
+            question: "Câu hỏi 11: Cáp UTP Cat 5 có bao nhiêu đôi cáp:",
+            choices: ["A. 2", "B. 4", "C. 6", "D. 8"],
+            correctAnswer: 1
+        },
+        {
+            question: "Câu hỏi 12: Đặc điểm quan trọng của kiến trúc mạng client/server (khách/chủ):",
+            choices: ["A. Client/server là kiến trúc phân cấp, client đóng vai trò yêu cầu và server đáp ứng lại các yêu cầu đó.", "B. Server là host luôn hoạt động, thường có IP cố định, có nhóm các server để chia sẻ công việc. Client có kết nối không liên tục, địa chỉ IP có thể thay đổi, truyền thông với server và thường không truyền thông trực tiếp với client khác.", "C. Câu A và B đều đúng", "D. Câu A và B đều sai"],
+            correctAnswer: 2
+        },
+        {
+            question: "Câu hỏi 13: Khẳng định nào sau đây là đúng khi nói về mạng có cấu trúc điểm- điểm:",
+            choices: ["A. Mạng quảng bá", "B. Nối từng cặp node lại với nhau theo một hình học xác định", "C. Mạng lưu và chuyển tiếp (Store - and - Forward)", "D. Các node trung gian: tiếp nhận, lưu trữ tạm thời và gửi tiếp thông tin"],
+            correctAnswer: 2
+        },
+        {
+            question: "Câu hỏi 14: Khẳng định nào sau đây là đúng khi nói về nhược điểm của mạng có cấu trúc điểm-điểm:",
+            choices: ["A. Khả năng đụng độ thông tin (collision) thấp", "B. Hiệu suất sử dụng đường truyền thấp, chiếm dụng nhiều tài nguyên", "C. Độ trễ lớn, tốn nhiều thời gian để thiết lập đường truyền và xử lý tại các node", "D. Tốc độ trao đổi thông tin thấp"],
+            correctAnswer: 1
+        },
+        {
+            question: "Câu hỏi 15: Khẳng định nào sau đây là đúng khi nói về đặc trưng của mạng quảng bá:",
+            choices: ["A. Tất cả các node cùng truy nhập chung trên một đường truyền vật lý", "B. Nối từng cặp node lại với nhau theo một hình học xác định", "C. Các node trung gian: tiếp nhận, lưu trữ tạm thời và gửi tiếp thông tin", "D. Khả năng đụng độ thông tin (collision) thấp"],
+            correctAnswer: 0
+        },
+        {
+            question: "Câu hỏi 16: Khẳng định nào sau đây là đúng khi nói về mạng chuyển mạch kênh:",
+            choices: ["A. Thiết lập liên kết vật lý, truyền dữ liệu và giải phóng liên kết giữa 2 thực thể", "B. Thiết lập liên kết logic, truyền dữ liệu và giải phóng liên kết giữa 2 thực thể", "C. Truyền dữ liệu giữa 2 thực thể", "D. Thiết lập liên kết và giải phóng liên kết giữa 2 thực thể"],
+            correctAnswer: 0
+        },
+        {
+            question: "Câu hỏi 17: Khẳng định nào sau đây là đúng khi nói về mạng chuyển mạch gói:",
+            choices: ["A. Gói tin lưu chuyển trên các kết nối logic", "B. Gói tin lưu chuyển trên các kết nối vật lý", "C. Gói tin lưu chuyển độc lập hướng đích", "D. Gói tin lưu chuyển trên các kết nối logic hướng đích và trên một đường có thể có nhiều gói tin cùng lưu chuyển"],
+            correctAnswer: 3
+        },
+        {
+            question: "Câu hỏi 18: Khẳng định nào sau đây là đúng khi nói về quá trình phân mảnh gói tin:",
+            choices: ["A. Làm giảm thời gian xử lý", "B. Làm tăng tính linh hoạt của mạng", "C. Ảnh hưởng đến tốc độ trao đổi dữ liệu trong mạng", "D. Tăng tốc độ trao đổi thông tin trong mạng"],
+            correctAnswer: 3
+        },
+        {
+            question: "Câu hỏi 19: Khẳng định nào sau đây là đúng khi nói về truyền dữ liệu theo phương thức hướng liên kết:",
+            choices: ["A. Có độ tin cậy cao, đảm bảo chất lượng dịch vụ và có xác nhận", "B. Không cần độ tin cậy cao, chất lượng dịch vụ thấp", "C. Có xác nhận, không kiểm soát lỗi, kiểm soát luồng", "D. Độ tin cậy cao, không xác nhận"],
+            correctAnswer: 0
+        },
+        {
+            question: "Câu hỏi 20: Khẳng định nào sau đây là đúng nói về cấu trúc vật lý của mạng:",
+            choices: ["A. Giao thức mạng (Protocol)", "B. Hình trạng mạng (Topology )", "C. Phương tiện truyền", "D. Các dịch vụ mạng"],
+            correctAnswer: 1
+        },
 
         
     ];
