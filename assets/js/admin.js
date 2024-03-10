@@ -160,7 +160,6 @@ document.addEventListener("DOMContentLoaded", function() {
         <td class="text-start">${item.last}</td>
         <td class="text-center">
             <button type="submit" onclick="this.parentNode.parentNode.remove(); showSuccessNotice('Xoa thanh cong sinh vien ${item.masv}')" class="btn btn--danger btn--size-s">Xoa</button>
-            <button type="submit" class="btn btn--warn btn--size-s">Sua</button>
             <a href="../DashboardAdmin/UserResult">
                 <i class="fa-solid fa-address-card" style="margin-left:10px; color: #40A2D8"></i>
             </a>
