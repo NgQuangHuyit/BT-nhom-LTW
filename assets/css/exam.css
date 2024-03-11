@@ -1,4 +1,4 @@
-Reset CSS
+/* Reset CSS */
 * {
     margin: 0;
     padding: 0;
@@ -73,11 +73,13 @@ body {
 
 .select-boxs {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .select-wrapper {
     margin-right: 20px; /* Khoảng cách giữa hai ô select */
     width: 50%;
+    margin-bottom: 20px;
 }
 
 .select-wrapper:last-child {
@@ -93,13 +95,6 @@ body {
     font-size: 16px;
 }
 
-
-.select-wrapper select option {
-    margin: 40px;
-    background: rgba(0, 0, 0, .3);
-    color: #fff;
-    text-shadow: 0 1px 0 rgba(0, 0, 0, .4);
-}
 
 .brLine {
     margin-bottom: 20px;

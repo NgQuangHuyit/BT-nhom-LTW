@@ -80,13 +80,12 @@ body {
     text-align: center;
 }
 
-
 .exam-option .box {
     text-align: center;
 }
 
 .exam-option .box:hover {
-    scale: 1.1;
+    transform: scale(1.1);
 }
 
 .exam-option .img img {

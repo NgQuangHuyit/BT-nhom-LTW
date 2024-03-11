@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             question: "Câu hỏi 2: Khi sử dụng mạng máy tính ta sẽ thu được các lợi ích:",
-            choices: ["A. Chia sẻ tài nguyên (ổ cứng, cơ sở dữ liệu, máy in, các phần mềm tiện ích...)", "B. Quản lý tập trung", "C. Tận dụng năng lực xử lý của các máy tính rỗi kết hợp lại để thực hiện các công việc lớn", "D. Tất cả đều đúngD"],
+            choices: ["A. Chia sẻ tài nguyên (ổ cứng, cơ sở dữ liệu, máy in, các phần mềm tiện ích...)", "B. Quản lý tập trung", "C. Tận dụng năng lực xử lý của các máy tính rỗi kết hợp lại để thực hiện các công việc lớn", "D. Tất cả đều đúng"],
             correctAnswer: 3
         },
         {
@@ -116,6 +116,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
         
     ];
+
+    function changeNavbarItemColor(questionIndex) {
+        const navbarItems = document.querySelectorAll('.navbar-item');
+        navbarItems.forEach((item, index) => {
+            if (index === questionIndex) {
+                item.style.backgroundColor = 'red';
+                item.querySelector('a').style.color = 'white';
+            }
+        });
+    }
+
+    // Thêm sự kiện change cho tất cả các input trong các câu hỏi để lắng nghe sự kiện thay đổi
+    function addChangeEventsToInputs() {
+        const allInputs = document.querySelectorAll('input[type="radio"]');
+        allInputs.forEach(input => {
+            input.addEventListener('change', function() {
+                // Lấy chỉ số của câu hỏi từ name của input
+                const questionIndex = parseInt(this.name.split('-')[1]); // Lấy chỉ số từ name
+                // Gọi hàm thay đổi màu cho navbar item tương ứng
+                changeNavbarItemColor(questionIndex);
+            });
+        });
+    }
     // Hiển thị tất cả câu hỏi
     function displayAllQuestions() {
         let navbarContent = '<table>'; // Nội dung cho navbar bên phải
@@ -152,10 +175,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         navbarContent += '</table>';
 
-        // Hiển thị navbar bên phải
-        //navbar.innerHTML = navbarContent;
-        // Hiển thị tất cả câu hỏi
-        //questionContainer.innerHTML = questionsHTML;
+       
         const navbar = document.querySelector('.navbar');
         navbar.innerHTML = navbarContent;
 
@@ -163,8 +183,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const questionContainer = document.querySelector('.question-container');
         questionContainer.innerHTML = questionsHTML;
     }
-
-   
 
     let timeLimit = 2700;
     
@@ -184,6 +202,7 @@ document.addEventListener('DOMContentLoaded', function() {
                      }, 1000);
     }
 
+    
     // Ẩn result-page ban đầu
     resultPage.style.display = 'none';
 
@@ -198,6 +217,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // Tính điểm số và hiển thị kết quả
         displayResult();
     }
+
+    
 
     // Hàm kiểm tra xem tất cả các câu hỏi đã được trả lời chưa
     function checkAllQuestionsAnswered() {
@@ -231,6 +252,7 @@ document.addEventListener('DOMContentLoaded', function() {
         submitExam();
     }
 });
+
 
     // Hiển thị kết quả
     function displayResult() {
@@ -285,4 +307,5 @@ document.addEventListener('DOMContentLoaded', function() {
     // Hiển thị tất cả câu hỏi và bắt đầu đếm ngược thời gian khi trang được tải
     displayAllQuestions();
     startTimer();
+    addChangeEventsToInputs();
 });
