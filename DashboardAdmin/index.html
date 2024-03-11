@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <script src="../assets/js/lib.js"></script>
     <link rel="stylesheet" href="../assets/css/notice.css">
-    <script src="../assets/js/notice.js"></script>
     <link rel="stylesheet" href="../assets/css/base.css">
     <link rel="stylesheet" href="../assets/css/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -58,8 +58,13 @@
             <div class="main__container">
                 <div class="tab" id="tab-01">
                     <div class="tab__header">DANH SACH KY THI</div>
+                    <div class="search-container" style="display: flex;">
+                        <label for="searchInput_01"> Tim kiem: </label>
+                        <input type="text" class="searchInput" id="searchInput_01" style="margin: 5px;" placeholder="Enter your search query">
+                        <i class="fa-solid fa-magnifying-glass" style="align-self: center;"></i>   
+                    </div>
                     <div class="tab__table">
-                        <table style="width: 100%;">
+                        <table style="width: 100%;" class="table-responsive-sm">
                             <colgroup>
                                 <col style="width: 100px;">
                                 <col>
@@ -93,6 +98,10 @@
                 </div>
                 <div class="tab" id="tab-02">
                     <div class="tab__header">DANH SACH NGUOI DUNG</div>
+                    <div class="search-container" style="display: flex;">
+                        <input type="text" id="searchInput_02" class="searchInput" style="margin: 5px;" placeholder="Enter your search query">
+                        <i class="fa-solid fa-magnifying-glass" style="align-self: center;"></i>   
+                    </div>
                     <div class="tab__table">
                         <table style="width: 100%;">
                             <colgroup>
