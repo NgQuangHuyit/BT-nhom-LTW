@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function() {
             ngayGioThi: "12/10/2022 15:00",
             trangThai: true,
             ketQua: 7.54,
-            resultLink: "#"
+            resultLink: "examResult01"
         },
         {
             id: 4,
@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function() {
             ngayGioThi: "12/10/2022 15:00",
             trangThai: true,
             ketQua: 7.54,
-            resultLink: "#"
+            resultLink: "examResult01"
         },
         {
             id: 6,
@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function() {
             ngayGioThi: "12/10/2022 15:00",
             trangThai: true,
             ketQua: 7.54,
-            resultLink: "#"
+            resultLink: "examResult01"
         },
         {
             id: 7,
@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function() {
             ngayGioThi: "12/10/2022 15:00",
             trangThai: true,
             ketQua: 7.54,
-            resultLink: "#"
+            resultLink: "examResult01"
         },
         {
             id: 8,
@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function() {
             ngayGioThi: "12/10/2022 15:00",
             trangThai: true,
             ketQua: 7.54,
-            resultLink: "#"
+            resultLink: "examResult01"
         },
         {
             id: 9,
@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function() {
             ngayGioThi: "12/10/2022 15:00",
             trangThai: true,
             ketQua: 7.54,
-            resultLink: "#"
+            resultLink: "examResult01"
         },
 
     ]
