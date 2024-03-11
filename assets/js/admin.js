@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function() {
             <td class="text-start">${item.socau}</td>
             <td class="text-center">
                 <button type="submit" onclick="this.parentNode.parentNode.remove(); showSuccessNotice('Xoa thanh cong ki thi ${item.id}')" id="btn-del-${index}" class="btn btn--danger btn--size-s">Xoa</button>
-                <button type="submit" class="btn btn--warn btn--size-s">Sua</button>
+                <a href="editExamForm.html" class="btn btn--warn btn--size-s">Sua</a>
             </td>
         `
         console.log(row);
