@@ -139,6 +139,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
+    
     // Hiển thị tất cả câu hỏi
     function displayAllQuestions() {
         let navbarContent = '<table>'; // Nội dung cho navbar bên phải
