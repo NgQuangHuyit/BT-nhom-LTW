@@ -255,7 +255,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Tạo HTML cho mỗi câu hỏi và đáp án
         resultHTML += `
             <div class="question-result question-result${modifier}">
-                <p class "question-text"><strong>Câu hỏi ${index + 1}:</strong> ${question.question}</p>
+                <p class="question-text"><strong>Câu hỏi ${index + 1}:</strong> ${question.question}</p>
                 <p class="user-answer"><strong>Đáp án của bạn:</strong> ${userAnswerIndex != -1 ? question.choices[userAnswerIndex] : "Không có"}</p>
                 <p class="correct-answer"><strong>Đáp án đúng:</strong> ${question.choices[correctAnswerIndex]}</p>
             </div>
@@ -274,6 +274,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Hiển thị thông tin kết quả
     answersContainer.innerHTML = resultHTML;
+    console.log(resultHTML)
 
     }
     

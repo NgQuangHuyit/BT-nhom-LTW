@@ -42,9 +42,9 @@ document.addEventListener("DOMContentLoaded", function() {
             tenKyThi: "Cuoi ki I 2022",
             monThi: "Mang may tinh",
             ngayGioThi: "12/12/2022 08:00",
-            trangThai: false,
-            ketQua: 0.0,
-            resultLink: "#"
+            trangThai: true,
+            ketQua: 2.50,
+            resultLink: "examResult01.html"
         },
         {
             id: 3,
