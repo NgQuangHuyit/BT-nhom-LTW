@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function() {
         {
             id: 4,
             tenKyThi: "Cuoi ki I 2023",
-            monThi: "Lap tring C++",
+            monThi: "Lap trinh C++",
             ngayGioThi: "12/10/2023 09:30",
             trangThai: false,
             ketQua: 0.0,
