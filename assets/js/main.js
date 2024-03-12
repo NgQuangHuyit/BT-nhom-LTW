@@ -75,6 +75,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function isEmailExist(email) {
         for(var i = 0; i < demoUsers.length; i++) {
             if(demoUsers[i].email === email) {
+                console.log(demoUsers[i].email)
                 return true;
             }
         }
@@ -101,7 +102,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     reForm.addEventListener("submit", function(event) {
         event.preventDefault();
-        const confirmEmail = document.getElementById("email").value;
+        const confirmEmail = document.getElementById("confirm-email").value;
 
         if(isEmailExist(confirmEmail)) {
             showSuccessNotice("Đã gửi mật khẩu mới về gmail của bạn!");
@@ -141,7 +142,9 @@ document.addEventListener("DOMContentLoaded", function() {
             registerForm.style.display = "none";
             reForm.style.display = "none";
         }
+        console.log(demoUsers);
     });
+    
 });
 
 
