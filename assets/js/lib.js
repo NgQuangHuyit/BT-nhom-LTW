@@ -100,3 +100,12 @@ function notice({ title = "", message = "", type = "info", duration = 3000 }) {
         type: "error" });
   }
   
+  function toggleInfo() {
+    var x = document.getElementById("adminCard");
+    if (x.style.display === "flex") {
+        x.style.display = "none";
+    } else {
+        x.style.display = "flex";
+    }
+}
+

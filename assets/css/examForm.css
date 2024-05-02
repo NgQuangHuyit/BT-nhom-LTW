@@ -1,11 +1,7 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #d67671;
-    margin: 0 auto;
-    }
+
 
 .quiz-container {
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 100px auto;
     padding: 20px;
     background-color: #fff;

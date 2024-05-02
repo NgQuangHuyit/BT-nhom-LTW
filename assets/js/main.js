@@ -87,17 +87,38 @@ document.addEventListener("DOMContentLoaded", function() {
         // Xác thực tên người dùng và mật khẩu (đoạn mã demo)
         var username = document.getElementById("Username").value;
         var password = document.getElementById("password").value;
-        
-        // Xác thực thành công, hiển thị phần nội dung của trang chính
-        if (isUserExist(username, password)) {
-            if (username === "admin") {
-            window.location.href = "DashboardAdmin";}
-            else {
-                window.location.href = "User";
+        console.log(username);
+        const myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+        const raw = JSON.stringify({
+        "username": username,
+        "password": password
+        });
+
+        const requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: raw,
+        redirect: "follow"
+        };
+
+        fetch("http://localhost:8080/auth/login", requestOptions)
+        .then((response) => response.json())
+        .then((result) => {
+            console.log(result);
+            if (result.success == true) {
+                console.log(result);
+                localStorage.setItem("token", result.token);
+                localStorage.setItem("username", result.username);
+                localStorage.setItem("userId", result.userId);
+                window.location.href = "DashboardAdmin";
             }
-        } else {
-            showErrorNotice("Tên đăng nhập hoặc mật khẩu không đúng!");
-        }
+            else {
+                showErrorNotice("Sai thông tin đăng nhập");
+            }
+        })
+        .catch((error) => console.error(error));
     });
 
     reForm.addEventListener("submit", function(event) {
