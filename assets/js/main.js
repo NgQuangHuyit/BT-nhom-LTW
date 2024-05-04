@@ -1,3 +1,39 @@
+function handlerLoginResponse(response) {
+    console.log(response);
+    if (!response.success) {
+        showErrorNotice("Sai thông tin đăng nhập");
+    }
+    else {
+        showSuccessNotice("Đăng nhập thành công!");
+        localStorage.setItem("token", response.token);
+        localStorage.setItem("username", response.username);
+        localStorage.setItem("userId", response.userId);
+        localStorage.setItem("email", response.email);
+        localStorage.setItem("fullname", response.fullname);
+        if (response.username ==  "admin") {
+            window.location.href = "DashboardAdmin";
+        }
+        else {
+            window.location.href = "User";
+        }
+    }
+}
+
+function handleRegisterResponse(response, registerForm) {
+    console.log(response);
+    if (!response.success) {
+        showErrorNotice(response.data.message);
+    }
+    else {
+        showSuccessNotice("Đăng ký thành công!");
+        document.getElementById("login-form").style.display = "block";
+        document.getElementById("register-form").style.display = "none";
+        document.getElementById('re-form').style.display = "none";
+        document.getElementById("Username").value = registerForm.username;
+        document.getElementById("password").value = registerForm.password;
+    }
+
+}
 document.addEventListener("DOMContentLoaded", function() {
     const loginForm = document.getElementById("login-form");
     const registerForm = document.getElementById("register-form");
@@ -29,49 +65,6 @@ document.addEventListener("DOMContentLoaded", function() {
         reForm.style.display = 'none';
     });
 
-    //đăng xuất
-    document.addEventListener('DOMContentLoaded', function() {
-        // Lắng nghe sự kiện click vào nút "Đăng xuất"
-        document.getElementById('logout-btn').addEventListener('click', function() {
-            // Chuyển hướng về trang index
-            window.location.href = 'index.html';
-        });
-    });
-
-    const demoUsers = [
-        {
-            username: "admin",
-            password: "admin",
-            email: "admin@gmail.com"
-        },
-        {
-            username: "user",
-            password: "user",
-            email: "user@gmail.com"
-        }
-    ];
-
-    // Hàm kiểm tra tài khoản
-    function isUserExist(username, password) {
-        // Duyệt qua mỗi đối tượng trong mảng users
-        for (var i = 0; i < demoUsers.length; i++) {
-            // So sánh username và password
-            if (demoUsers[i].username === username && demoUsers[i].password === password) {
-                return true; // Trả về true nếu tìm thấy tài khoản
-            }
-        }
-        return false; // Trả về false nếu không tìm thấy tài khoản
-    }
-
-    function isUsernameExist(username) {
-        for(var i = 0; i < demoUsers.length; i++) {
-            if(demoUsers[i].username === username) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     function isEmailExist(email) {
         for(var i = 0; i < demoUsers.length; i++) {
             if(demoUsers[i].email === email) {
@@ -87,41 +80,9 @@ document.addEventListener("DOMContentLoaded", function() {
         // Xác thực tên người dùng và mật khẩu (đoạn mã demo)
         var username = document.getElementById("Username").value;
         var password = document.getElementById("password").value;
-        console.log(username);
-        const myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
-
-        const raw = JSON.stringify({
-        "username": username,
-        "password": password
-        });
-
-        const requestOptions = {
-        method: "POST",
-        headers: myHeaders,
-        body: raw,
-        redirect: "follow"
-        };
-
-        fetch("http://localhost:8080/auth/login", requestOptions)
-        .then((response) => response.json())
-        .then((result) => {
-            console.log(result);
-            if (result.success == true) {
-                console.log(result);
-                localStorage.setItem("token", result.token);
-                localStorage.setItem("username", result.username);
-                localStorage.setItem("userId", result.userId);
-                localStorage.setItem("email", result.email);
-                localStorage.setItem("fullname", result.fullname);
-                window.location.href = "DashboardAdmin";
-            }
-            else {
-                showErrorNotice("Sai thông tin đăng nhập");
-            }
-        })
-        .catch((error) => console.error(error));
+        checkLogin(username, password, handlerLoginResponse);
     });
+
 
     reForm.addEventListener("submit", function(event) {
         event.preventDefault();
@@ -141,6 +102,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     })
 
+    usernamePattern = /^[a-zA-Z][a-zA-Z0-9]{5,}$/;
+    passwordPattern = /^[a-zA-Z0-9]{7,}$/;
     registerForm.addEventListener("submit", function(event) {
         event.preventDefault();
         const newUsername = document.getElementById("newUsername").value;
@@ -148,24 +111,19 @@ document.addEventListener("DOMContentLoaded", function() {
         const newPassword = document.getElementById("newPassword").value;
         const confirmPassword = document.getElementById("confirmPassword").value;
 
-        if(isUsernameExist(newUsername)) {
-            showErrorNotice("Tài khoản đã được đăng kí. Vui lòng đăng kí tài khoản khác!");
-        } else {
-            // Kiểm tra xác nhận mật khẩu
-            if (newPassword !== confirmPassword) {
-                showErrorNotice("Mật khẩu không khớp. Vui lòng nhập lại.");
-                return;
-            }
-            else {
-                demoUsers.push({username: newUsername, password: newPassword, email: newEmail});
-            }
-            // Xử lý đăng ký ở đây (chưa cần gọi đến backend)
-            showSuccessNotice("Đăng ký thành công!");
-            loginForm.style.display = "block";
-            registerForm.style.display = "none";
-            reForm.style.display = "none";
+        if (!usernamePattern.test(newUsername)) {
+            showErrorNotice("Tên đăng nhập phải bắt đầu bằng chữ cái và chứa ít nhất 6 ký tự.");
+            return;
         }
-        console.log(demoUsers);
+        if (!passwordPattern.test(newPassword)) {
+            showErrorNotice("Mật khẩu phải chứa ít nhất 7 ký tự.");
+            return;
+        }
+        if (newPassword !== confirmPassword) {
+            showErrorNotice("Mật khẩu không khớp. Vui lòng nhập lại.");
+            return;
+        }
+        registerUser({username: newUsername, password: newPassword, email: newEmail}, handleRegisterResponse);
     });
     
 });

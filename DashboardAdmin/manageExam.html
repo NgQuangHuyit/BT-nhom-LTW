@@ -45,7 +45,7 @@
             
           </div>
         </div>
-      </div>
+    </div>
 
     <div class="wrapper">
         <div class="header" style="text-align: center; margin-bottom: 50px; margin-top: 20px;">
@@ -59,20 +59,46 @@
                 <div class="row"> 
                     <div class="col-md-12"> 
                         <div> 
-                            <div class="search-box"> 
+                            <form class="search-box" id="search-form" > 
                                 <i class='bx bxs-map' ></i> 
-                                <input type="" placeholder="Search value"> 
-                                <button>Search</button> 
-                            </div> 
+                                <input type="" placeholder="Search value" id="search-input"> 
+                                <button type="submit">Search</button> 
+                            </form> 
                         </div> 
                     </div> 
                 </div> 
             </div>
         </div>
-        
-
-        <div class="filterbox">
-        </div>
+        <form class="filter-box mt-3" id="filter-form">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                  <label>Môn thi</label>
+                  <select id="filter-subject" name="subject" class="form-control exam-form-field" required>
+                      <option disabled selected value="">Select</option>
+                      <option value="Toán rời rạc">Toán rời rạc</option>
+                      <option value="Lập trình web">Lập trình web</option>
+                      <option value="Cơ sở dữ liêu">Cơ sở dữ liêu</option>
+                      <option value="Mạng máy tính">Mạng máy tính</option>
+                      <option value="other">Other</option>
+                  </select>
+              </div>
+          </div>
+              <div class="col-md-5">
+                  <div class="form-group">
+                      <label>Active</label>
+                      <select id="filter-status" name="active" class="form-control exam-form-field" required>
+                          <option disabled selected value="">Select</option>
+                          <option value="true">Yes</option>
+                          <option value="false">No</option>
+                      </select>
+                  </div>
+              </div>
+              <div class="col-md-1" style="display: flex; align-items: center;">
+                <button type="submit">Lọc</button>
+          </div>
+          </div>
+        </form>
 
         <div>
             <a href="examForm.html" class="btn btn-primary" style="margin: 5px; color: white;">

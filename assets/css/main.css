@@ -111,7 +111,7 @@ td i:hover {
     color: #eee
 }
 
-.search-box button {
+.search-box button{
     position: absolute;
     right: 1px;
     top: 0px;
@@ -123,6 +123,17 @@ td i:hover {
     border-radius: 4px
 }
 
+.filter-box button {
+
+    right: 1px;
+    top: 0px;
+    border: none;
+    height: 45px;
+    background-color: rgb(30, 106, 192);
+    color: #fff;
+    width: 90px;
+    border-radius: 4px
+}
 table td,
 table th {
   text-overflow: ellipsis;

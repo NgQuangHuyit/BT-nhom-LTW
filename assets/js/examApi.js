@@ -14,12 +14,6 @@ function deleteExam(examId, callback) {
 
 }
 
-function handlerDeleteExam(result, examId) {
-    if (result.success) {
-        showSuccessNotice("Xóa thành công");
-        document.getElementById(`tbl1_row_${examId}`).remove();
-    }
-}
 
 function getAllExams(callback) {
     const myHeaders = new Headers();
@@ -49,6 +43,61 @@ function getExamById(examId, callback) {
     };
 
     fetch(`http://localhost:8080/exams/${examId}`, requestOptions)
+    .then((response) => response.json())
+    .then((result) => callback(result))
+    .catch((error) => console.error(error));
+}
+
+function searchExamByTitle(title, callback) {
+    console.log(title);
+    const myHeaders = new Headers();
+    myHeaders.append("Authorization", `Bearer ${localStorage.getItem("token")}`);
+
+    const requestOptions = {
+    method: "GET",
+    headers: myHeaders,
+    redirect: "follow"
+    };
+
+    fetch(`http://localhost:8080/exams/search?searchValue=${title}`, requestOptions)
+    .then((response) => response.json())
+    .then((result) => callback(result))
+    .catch((error) => console.error(error));
+}
+
+function createExam(exam, callback) {
+    const myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+        myHeaders.append("Authorization", `Bearer ${localStorage.getItem("token")}`);
+    
+        const raw = JSON.stringify(exam);
+    
+        const requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: raw,
+        redirect: "follow"
+        };
+    
+        fetch("http://localhost:8080/exams", requestOptions)
+        .then((response) => response.json())
+        .then((result) => callback(result))
+        .catch((error) => console.error(error));
+}
+
+function filterExam(status, subject, callback) {
+    const myHeaders = new Headers();
+    myHeaders.append("Authorization", `Bearer ${localStorage.getItem("token")}`);
+
+    const requestOptions = {
+    method: "GET",
+    headers: myHeaders,
+    redirect: "follow"
+    };
+
+    url = `http://localhost:8080/exams/filter?status=${status}&subject=${subject}`
+    url = encodeURI(url);
+    fetch(url, requestOptions)
     .then((response) => response.json())
     .then((result) => callback(result))
     .catch((error) => console.error(error));
