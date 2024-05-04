@@ -68,13 +68,17 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label id="title-label" for="form-field-title">Tên đề thi</label>
-                            <input type="text" name="name" id="form-field-title" placeholder="Tên đề thi" class="form-control" required>
+                            <input type="text" name="name" id="form-field-title" placeholder="Tên đề thi" class="form-control exam-form-field" required>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label id="email-label" for="code">Access Code</label>
-                            <input type="text" name="code" id="code" placeholder="Code" class="form-control" required>
+                            <label>Active</label>
+                            <select id="form-field-active" name="active" class="form-control exam-form-field" required>
+                                <option disabled selected value>Select</option>
+                                <option value="true">Yes</option>
+                                <option value="false">No</option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -83,13 +87,13 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label id="number-label" for="form-field-timeAmt">Thời gian làm bài</label>
-                            <input type="number" name="age" id="form-field-timeAmt" min="0" max="200" class="form-control" placeholder="Phút" >
+                            <input type="number" name="age" id="form-field-timeAmt" min="0" max="200" class="form-control exam-form-field" placeholder="Phút" >
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Môn thi</label>
-                            <select id="form-field-subject" name="role" class="form-control" required>
+                            <select id="form-field-subject" name="subject" class="form-control exam-form-field" required>
                                 <option disabled selected value>Select</option>
                                 <option value="Toán rời rạc">Toán rời rạc</option>
                                 <option value="Lập trình web">Lập trình web</option>
@@ -101,34 +105,23 @@
                     </div>
                 </div>
                 
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Active</label>
-                            <select id="form-field-active" name="active" class="form-control" required>
-                                <option disabled selected value>Select</option>
-                                <option value="true">Yes</option>
-                                <option value="false">No</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
     
     
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
                             <label>Mô tả</label>
-                            <textarea  id="description" class="form-control" name="comment" placeholder="Enter your description here..."></textarea>
+                            <textarea  id="description" class="form-control exam-form-field" name="comment" placeholder="Enter your description here..."></textarea>
                         </div>
                     </div>
                 </div>
                 
                 <div class="row">
-                    <div class="col-md-4">
-                        <button type="submit" id="submit-exam-form" class="btn btn-primary btn-block">Thêm</button>
+                    <div class="col-md-2">
+                        <button type="submit" id="submit-exam-btn"  class="btn btn-primary ">Thêm</button>
                     </div>
                 </div>
+            
     
             </form>
         </div>	

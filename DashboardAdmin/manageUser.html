@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <script src="../assets/js/lib.js"></script>
+    <script>checkTokenValid()</script>
     <script src="../assets/js/examApi.js"></script>
     <link rel="stylesheet" href="../assets/css/notice.css">
     <link rel="stylesheet" href="../assets/css/base.css">
@@ -15,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/fonts/fontawesome-free-6.5.1-web/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="../assets/js/admin.js"></script>
+    <script src="../assets/js/manageUser.js"></script>
     <title>AdminPage</title>
 </head>
 <body>
@@ -107,61 +108,15 @@
                             <thead>
                               <tr>
                                 <th scope="col" class="col-1">#</th>
-                                <th scope="col" class="col-2">Title</th>
-                                <th scope="col" class="col-2">Subject</th>
-                                <th scope="col" class="col-1">Dur</th>
-                                <th scope="col" class="col-1">QuesCnt</th>
-                                <th scope="col" class="col-1">Active</th>
+                                <th scope="col" class="col-2">Username</th>
+                                <th scope="col" class="col-2">Họ tên</th>
+                                <th scope="col" class="col-1">Lớp</th>
+                                <th scope="col" class="col-1">IsActive</th>
+                                <th scope="col" class="col-1">Gender</th>
                                 <th scope="col" class="col-3"> Action</th>
                               </tr>
                             </thead>
-                            <tbody>
-                              <tr>
-                                <th scope="row" style="color: #666666;">1</th>
-                                <td>TRR-GKI-2022</td>
-                                <td>Toan rời rạc</td>
-                                <td>61</td>
-                                <td>50</td>
-                                <td>true</td>
-                                <td><button class="btn btn-outline-info">Detail</button>
-                                    <button class="btn btn-outline-success">Sua</button>
-                                    <button class="btn btn-outline-danger" class="bg-red">xoa</button></td>
-                              </tr>
-                              <tr>
-                                <th scope="row" style="color: #666666;">1</th>
-                                <td>TRR-GKI-2022</td>
-                                <td>Toan rời rạc</td>
-                                <td>61</td>
-                                <td>50</td>
-                                <td>true</td>
-                                <td><button class="btn btn-outline-info">Detail</button>
-                                    <button class="btn btn-outline-success">Sua</button>
-                                    <button class="btn btn-outline-danger">xoa</button>
-                                </td>
-                              </tr>
-                              <tr>
-                                <th scope="row" style="color: #666666;">1</th>
-                                <td>TRR-GKI-2022</td>
-                                <td>Toan rời rạc</td>
-                                <td>61</td>
-                                <td>50</td>
-                                <td>true</td>
-                                <td><button class="btn btn-outline-info">Detail</button>
-                                    <button class="btn btn-outline-success">Sua</button>
-                                    <button class="btn btn-outline-danger">xoa</button></td>
-                              </tr>
-                              <tr>
-                                <th scope="row" style="color: #666666;">1</th>
-                                <td>TRR-GKI-2022</td>
-                                <td>Toan rời rạc</td>
-                                <td>61</td>
-                                <td>50</td>
-                                <td>true</td>
-                                <td><button class="btn btn-outline-info">Detail</button>
-                                    <button class="btn btn-outline-success">Sua</button>
-                                    <button class="btn btn-outline-danger">xoa</button></td>
-                              </tr>
-
+                            <tbody id="tbody1">
                             </tbody>
                           </table>
                         </div>
