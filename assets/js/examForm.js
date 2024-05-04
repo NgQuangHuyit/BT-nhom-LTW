@@ -10,15 +10,14 @@ document.addEventListener("DOMContentLoaded", function(){
     }
     
     function submitExamForm() {
-        console.log("submitExamForm");
         var title = document.getElementById("form-field-title").value;
         var timeAmt = document.getElementById("form-field-timeAmt").value;
         var subject = document.getElementById("form-field-subject").value;
         var description = document.getElementById("description").value;
         var isActive = document.getElementById("form-field-active").value;
-    
+
         var newExam = new Exam(title, timeAmt, subject, isActive, description);
-        
+
         const myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
         myHeaders.append("Authorization", `Bearer ${localStorage.getItem("token")}`);
@@ -36,8 +35,9 @@ document.addEventListener("DOMContentLoaded", function(){
         .then((response) => response.json())
         .then((result) => {
             if (result.success) {
-                console.log(result);
                 showSuccessNotice(`Tạo thành công đề thi ${title}`);
+                sessionStorage.setItem("editExamId", result.data.id);
+                window.location.href = "/DashboardAdmin/editExam.html";
             }
             else
             {
@@ -48,7 +48,46 @@ document.addEventListener("DOMContentLoaded", function(){
         .catch((error) => console.error(error));
     }
 
+
+    // document.getElementById("save-exam-btn").addEventListener("click", function(event) {
+    //     var title = document.getElementById("form-field-title").value;
+    //     var timeAmt = document.getElementById("form-field-timeAmt").value;
+    //     var subject = document.getElementById("form-field-subject").value;
+    //     var description = document.getElementById("description").value;
+    //     var isActive = document.getElementById("form-field-active").value;
     
+    //     var newExam = new Exam(title, timeAmt, subject, isActive, description);
+
+    //     const myHeaders = new Headers();
+    //     myHeaders.append("Content-Type", "application/json");
+    //     myHeaders.append("Authorization", `Bearer ${localStorage.getItem("token")}`);
+
+    //     const raw = JSON.stringify(newExam);
+
+    //     const requestOptions = {
+    //     method: "PUT",
+    //     headers: myHeaders,
+    //     body: raw,
+    //     redirect: "follow"
+    //     };
+
+    //     fetch("http://localhost:8080/exams/", requestOptions)
+    //     .then((response) => response.text())
+    //     .then((result) => {
+    //         console.log(result);
+    //         if (result === "success") {
+    //             showSuccessNotice(`Cập nhập thành công đề thi ${title}`);
+    //             document.getElementById("edit-exam-btn").removeAttribute("disabled");
+    //             disableExamForm();
+    //         }
+    //         else
+    //         {
+    //             showErrorNotice(`Chỉnh sửa thất bại đề thi ${title}`);
+            
+    //     }})
+    //     .catch((error) => console.error(error));
+    // });
+    // console.log(document.getElementById("edit-exam-btn"));
     document.getElementById("exam-form").addEventListener("submit", function(event) {
         event.preventDefault();
         submitExamForm();

@@ -9,23 +9,27 @@ document.addEventListener("DOMContentLoaded", function() {
         <td>${data.subject}</td>
         <td>${data.timeAmt}</td>
         <td>${data.questionCount}</td>
-        <td>true</td>
+        <td style="color:${data.isActive ? "green" : "red"}">${data.isActive ? true : false}</td>
         <td><button class="btn btn-outline-info">Thống kê</button>
-            <button class="btn btn-outline-success">Sửa</button>
-            <button class="btn btn-outline-danger" class="bg-red">Xóa</button>
+            <button class="btn btn-outline-success" onclick="editExamPage(${data.id})">Sửa</button>
+            <button class="btn btn-outline-danger" class="bg-red" onclick="deleteExam(${data.id}, handlerDeleteExam); ">Xóa</button>
         </td>
         `
         return row;
     }
 
-    getAllExams(function(data) {
-        console.log(data);
+    deleteExam(1, function(result) {});
+    function renderAllExams() {
+        getAllExams(function(data) {
+            data.forEach(function(item) {
+                console.log(item);
+                document.getElementById('tbody_tbl1').appendChild(renderExam(item));
+            })
+        });
+    }
 
-        data.forEach(function(item) {
-            console.log(item);
-            document.getElementById('tbody_tbl1').appendChild(renderExam(item));
-        })
-    });
+    renderAllExams();
+
 
 
     

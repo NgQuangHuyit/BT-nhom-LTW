@@ -102,10 +102,80 @@ function notice({ title = "", message = "", type = "info", duration = 3000 }) {
   
   function toggleInfo() {
     var x = document.getElementById("adminCard");
-    if (x.style.display === "flex") {
-        x.style.display = "none";
-    } else {
-        x.style.display = "flex";
+    console.log(x.innerHTML);
+    if (x.innerHTML === "") {
+      x.style.display = "flex";
+      x.innerHTML = `
+      <div class="card_item">
+        <i class="fa-solid fa-user card__icon"></i>
+        <span class="card__info">${localStorage.getItem("username")}</span>
+      </div>
+      <div class="card_item">
+        <i class="fa-solid fa-envelope card__icon"></i>
+        <span class="card__info">${localStorage.getItem("email")}</span>
+      </div>
+      <div class="card_item">
+          <i class="fa-solid fa-signature card__icon"></i>
+          <span class="card__info">${localStorage.getItem("fullname")}</span>
+      </div>
+      <button class="card_item logout" onclick="logout()" >
+        <i class="fa-solid fa-right-to-bracket card__icon"></i>
+        <span class="card__info ">Đăng xuất</span>
+      </button>
+              `;
+    }
+    else {
+      x.innerHTML = "";
+      x.style.display = "none";
     }
 }
 
+function checkTokenValid() {
+    if (localStorage.getItem("token") === null) {
+      window.location.href = "/";
+    }
+    else {
+      const myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+      const raw = JSON.stringify({
+        "token": `${localStorage.getItem("token")}`
+      });
+
+      const requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: raw,
+        redirect: "follow"
+      };
+
+      fetch("http://localhost:8080/auth/introspect", requestOptions)
+        .then((response) => response.json())
+        .then((result) => {
+          if (result.valid == true) {
+            console.log("Token is valid");
+          }
+          else {
+            localStorage.removeItem("token");
+            localStorage.removeItem("username");
+            localStorage.removeItem("email");
+            localStorage.removeItem("fullname");
+            window.location.href = "/";
+          }
+        })
+        .catch((error) => console.error(error));
+          }
+
+}
+
+function logout () {
+    localStorage.removeItem("token");
+    localStorage.removeItem("username");
+    localStorage.removeItem("email");
+    localStorage.removeItem("fullname");
+    window.location.href = "/";
+}
+
+function editExamPage(id) {
+  sessionStorage.setItem("editExamId", id);
+  window.location.href = "editExam.html";
+}

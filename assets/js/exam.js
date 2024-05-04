@@ -29,7 +29,34 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     }
+    data = {
+        "id": 1,
+        "title": "MMT-GKI-2022",
+        "description": "Thi giua ki I nam 2023 mon Mang may tinh",
+        "subject": "Mang may tinh",
+        "timeAmt": 50,
+        "questionCount": 0,
+        "isActive": true,
+        "createdAt": "2024-04-22T10:11:00.000+00:00",
+        "updatedAt": "2024-04-22T10:12:21.000+00:00"
+    }
+    
+    function renderExam(data) {
+        var ele = document.createElement('div')
+    
+        ele.innerHTML = `
+                        <h2 class="lich-su-Dang">${data.title}</h2>
+                        <div class="view-detail">
+                            <div class="can-access">Có thể truy cập</div>
+                        </div>
+                        <a href="testPage.html" class="btn orange">Bắt đầu thi</a>
+                    `
+        return ele
+    }
+    
+    document.getElementById('exam-list').appendChild(renderExam(data))
 });
+
 
 
 document.addEventListener("DOMContentLoaded", function() {

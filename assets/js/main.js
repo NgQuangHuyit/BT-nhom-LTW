@@ -112,6 +112,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 localStorage.setItem("token", result.token);
                 localStorage.setItem("username", result.username);
                 localStorage.setItem("userId", result.userId);
+                localStorage.setItem("email", result.email);
+                localStorage.setItem("fullname", result.fullname);
                 window.location.href = "DashboardAdmin";
             }
             else {
